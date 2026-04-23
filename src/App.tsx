@@ -25,7 +25,75 @@ import authorPortrait from './images/author-portrait.png';
 
 // --- Components ---
 
-const Navbar = () => {
+const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  useEffect(() => {
+    if (isOpen) {
+      // Prevent scrolling when modal is open
+      const previousOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        document.body.style.overflow = previousOverflow;
+      };
+    }
+  }, [isOpen]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10"
+    >
+      <div 
+        className="absolute inset-0 bg-maroon-dark/95 backdrop-blur-xl" 
+        onClick={onClose} 
+      />
+      
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+        className="relative w-full max-w-3xl bg-parchment rounded-[32px] overflow-hidden shadow-2xl flex flex-col h-[85vh] md:h-[80vh] border border-gold/20"
+      >
+        <div className="flex justify-between items-center p-6 border-b border-maroon-dark/5 bg-white/50">
+          <div className="flex items-center gap-3">
+            <DharmaChakra className="w-6 h-6 text-gold" />
+            <span className="font-serif text-lg tracking-widest uppercase text-maroon-dark">Secure Your Copy</span>
+          </div>
+          <button 
+            onClick={onClose}
+            className="p-2 hover:bg-maroon-dark/5 rounded-full transition-colors text-maroon-dark"
+          >
+            <X size={24} />
+          </button>
+        </div>
+        
+        <div className="flex-1 overflow-auto bg-white/30">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/iheeRBxRvFxBrVakPUJC"
+            style={{ width: '100%', height: '100%', border: 'none' }}
+            id="inline-iheeRBxRvFxBrVakPUJC" 
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="maha mantras form "
+            data-height="undefined"
+            data-layout-iframe-id="inline-iheeRBxRvFxBrVakPUJC"
+            data-form-id="iheeRBxRvFxBrVakPUJC"
+            title="maha mantras form "
+          />
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -72,6 +140,7 @@ const Navbar = () => {
           <motion.button
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
+            onClick={onOpenModal}
             className="px-6 py-2 bg-gold text-maroon-dark text-xs uppercase font-bold tracking-widest rounded-full"
           >
             Pre-Order
@@ -109,7 +178,13 @@ const Navbar = () => {
                   {link.name}
                 </a>
               ))}
-              <button className="mt-8 px-8 py-4 bg-gold text-maroon-dark text-lg uppercase font-bold tracking-widest rounded-full">
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  onOpenModal();
+                }}
+                className="mt-8 px-8 py-4 bg-gold text-maroon-dark text-lg uppercase font-bold tracking-widest rounded-full"
+              >
                 Pre-Order Now
               </button>
             </div>
@@ -120,7 +195,7 @@ const Navbar = () => {
   );
 };
 
-const Hero = () => {
+const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 100]);
   const rotate = useTransform(scrollY, [0, 500], [0, 15]);
@@ -137,7 +212,7 @@ const Hero = () => {
           className="text-left order-2 lg:order-1"
         >
           <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Sacred Discipline</span>
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-[0.9] text-parchment">
+          <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-tight md:leading-[0.9] text-parchment">
             Maha <span className="text-gold-gradient italic">Mantras</span>
           </h1>
           <p className="text-xl md:text-2xl text-parchment/60 font-light tracking-wide mb-12 max-w-lg">
@@ -145,7 +220,10 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-start gap-6">
-            <button className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10">
+            <button 
+              onClick={onOpenModal}
+              className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10"
+            >
               Pre-Order Now
             </button>
             <button 
@@ -165,7 +243,7 @@ const Hero = () => {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] opacity-15 pointer-events-none flex items-center justify-center"
           >
             <div className="absolute w-1/3 h-1/3 rounded-full overflow-hidden blur-sm">
-              <img src={authorImage} alt="" className="w-full h-full object-cover grayscale" />
+              <img src={authorImage} alt="" className="w-full h-full object-cover grayscale mix-blend-screen" />
             </div>
             <MandalaGrid className="w-full h-full text-gold" />
           </motion.div>
@@ -212,7 +290,7 @@ const AuthoritySection = () => {
           transition={{ duration: 0.8 }}
         >
           <LotusGeometry className="w-16 h-16 text-gold/20 mx-auto mb-12" />
-          <h2 className="text-4xl md:text-6xl font-serif mb-12 leading-tight text-parchment">
+          <h2 className="text-3xl md:text-6xl font-serif mb-12 leading-tight text-parchment">
             The world is loud. <br />
             <span className="text-gold italic">Your mind doesn't have to be.</span>
           </h2>
@@ -339,7 +417,7 @@ const ChaptersSection = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
           <div className="max-w-2xl">
             <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Sacred Journey</span>
-            <h2 className="text-5xl md:text-8xl font-serif leading-none text-parchment">The Ten Maha Mantras</h2>
+            <h2 className="text-4xl md:text-8xl font-serif leading-tight md:leading-none text-parchment">The Ten Maha Mantras</h2>
           </div>
           <p className="text-parchment/40 uppercase tracking-widest text-xs font-medium pb-4">
             Extracted from 364 Pages of Wisdom
@@ -474,7 +552,7 @@ const PreviewSection = () => {
             viewport={{ once: true }}
           >
             <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">Inside the Pages</span>
-            <h2 className="text-5xl md:text-7xl font-serif mb-8 italic text-parchment">A Mental Operating System</h2>
+            <h2 className="text-4xl md:text-7xl font-serif mb-8 italic text-parchment">A Mental Operating System</h2>
             <p className="text-xl text-parchment/60 font-light leading-relaxed mb-12">
               This is not a motivational book. It is a technical manual for the human mind. 
               Each page is designed with Apple-level precision to ensure the knowledge 
@@ -530,20 +608,27 @@ const PreviewSection = () => {
 
 const AuthorSection = () => {
   return (
-    <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-parchment text-maroon-dark">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
-        <div className="w-full md:w-1/3">
+    <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark text-parchment relative overflow-hidden">
+      {/* Decorative Background Element */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-gold/5 blur-[120px] rounded-full" />
+      
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
+        <div className="w-full md:w-5/12">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="aspect-square rounded-2xl overflow-hidden relative bg-black shadow-2xl shadow-black/20"
+              className="aspect-[4/5] rounded-3xl overflow-hidden relative group"
             >
+              <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark via-transparent to-transparent z-10" />
+              <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <img 
                 src={authorPortrait} 
                 alt="Sakshi Shree" 
-                className="w-full h-full object-contain object-center"
+                className="w-full h-full object-cover object-top mix-blend-screen"
               />
+              {/* Gold frame overlay */}
+              <div className="absolute inset-4 border border-gold/20 rounded-2xl pointer-events-none" />
             </motion.div>
         </div>
         <div className="flex-1">
@@ -552,19 +637,19 @@ const AuthorSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-gold-muted uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Enlightened Master</span>
-            <h2 className="text-5xl md:text-7xl font-serif mb-8">Sakshi Shree</h2>
-            <p className="text-xl text-maroon-dark/70 font-light leading-relaxed mb-8">
+            <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Enlightened Master</span>
+            <h2 className="text-4xl md:text-7xl font-serif mb-8 text-parchment">Sakshi Shree</h2>
+            <p className="text-xl text-parchment/70 font-light leading-relaxed mb-8">
               Born Rām Krishna Upādhyāya, Sakshi Shree is a rare triad: an enlightened master, a householder, and a former civil servant. 
               Mentored by Swami Sudarshanacharya Ji Maharaj, he bridges the gap between ancient Himalayan wisdom and the modern boardroom.
             </p>
-            <p className="text-lg text-maroon-dark/60 font-light leading-relaxed mb-12 italic border-l-4 border-gold/20 pl-8">
+            <p className="text-lg text-parchment/60 font-light leading-relaxed mb-12 italic border-l-4 border-gold/30 pl-8">
               "I do not teach any religion; I bring out the best of philosophies to enhance the lives of those I touch. 
               The battlefield of Kurukshetra has not disappeared—it has only multiplied. It now exists within every individual navigating ambition and conscience."
             </p>
             <div className="flex items-center gap-6">
-              <div className="w-12 h-px bg-gold-muted" />
-              <span className="font-serif italic text-xl">Founder of the Science Divine Foundation</span>
+              <div className="w-12 h-px bg-gold" />
+              <span className="font-serif italic text-xl text-gold/80">Founder of the Science Divine Foundation</span>
             </div>
           </motion.div>
         </div>
@@ -628,7 +713,7 @@ const Testimonials = () => {
   );
 };
 
-const PreOrderSection = () => {
+const PreOrderSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 12,
     hours: 8,
@@ -664,7 +749,7 @@ const PreOrderSection = () => {
           <span className="inline-block px-4 py-1 bg-gold/10 border border-gold/30 rounded-full text-gold text-[10px] uppercase tracking-widest mb-8">
             Limited First Edition
           </span>
-          <h2 className="text-5xl md:text-8xl font-serif mb-8 text-parchment">Reserve Your Legacy</h2>
+          <h2 className="text-4xl md:text-8xl font-serif mb-8 text-parchment">Reserve Your Legacy</h2>
           <p className="text-xl text-parchment/60 font-light mb-10 md:mb-12 max-w-2xl mx-auto">
             Pre-order the premium hardcover edition today and receive the exclusive 
             "Sacred Sound" digital companion and a hand-signed bookmark.
@@ -683,7 +768,10 @@ const PreOrderSection = () => {
             <div className="flex items-baseline gap-4">
               <span className="text-parchment text-5xl font-serif">₹499</span>
             </div>
-            <button className="w-full md:w-auto px-16 py-6 bg-gold text-maroon-dark font-bold uppercase tracking-[0.2em] rounded-full shadow-2xl shadow-gold/20">
+            <button 
+              onClick={onOpenModal}
+              className="w-full md:w-auto px-16 py-6 bg-gold text-maroon-dark font-bold uppercase tracking-[0.2em] rounded-full shadow-2xl shadow-gold/20"
+            >
               Reserve Your Copy Now
             </button>
             <p className="text-xs text-parchment/40 uppercase tracking-widest">
@@ -709,7 +797,7 @@ const FinalImpact = () => {
         transition={{ duration: 1.5 }}
         className="max-w-4xl relative z-10"
       >
-        <h2 className="text-3xl md:text-6xl lg:text-7xl font-serif italic leading-tight text-parchment max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-6xl lg:text-7xl font-serif italic leading-tight text-parchment max-w-3xl mx-auto">
           “This is not just a book. <br />
           It is a discipline system for your mind.”
         </h2>
@@ -803,20 +891,41 @@ const Footer = () => {
 // --- Main App ---
 
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  useEffect(() => {
+    const embedSrc = 'https://link.msgsndr.com/js/form_embed.js';
+    const existingScript = document.querySelector(`script[src="${embedSrc}"]`);
+    if (existingScript) return;
+
+    const script = document.createElement('script');
+    script.src = embedSrc;
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <div className="bg-maroon-dark text-parchment selection:bg-gold/30">
-      <Navbar />
-      <Hero />
+      <Navbar onOpenModal={openModal} />
+      <Hero onOpenModal={openModal} />
       <AuthoritySection />
       <ChaptersSection />
       <BenefitsSection />
       <PreviewSection />
       <AuthorSection />
       <Testimonials />
-      <PreOrderSection />
+      <PreOrderSection onOpenModal={openModal} />
       <GlossarySection />
       <FinalImpact />
       <Footer />
+
+      <AnimatePresence>
+        {isModalOpen && (
+          <PreOrderModal isOpen={isModalOpen} onClose={closeModal} />
+        )}
+      </AnimatePresence>
     </div>
   );
 }
