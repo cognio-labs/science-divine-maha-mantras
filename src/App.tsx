@@ -6,22 +6,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import { 
-  ChevronRight, 
+  Facebook,
   BookOpen, 
   Shield, 
   Zap, 
   Compass, 
   Anchor, 
-  ArrowRight,
-  Clock,
   Star,
   Menu,
   X,
-  Instagram,
-  Twitter,
-  Linkedin
+  Youtube,
+  Instagram
 } from 'lucide-react';
 import { DharmaChakra, LotusGeometry, SoundWave, MandalaGrid } from './components/SacredArt';
+import authorImage from './images/author-image.png';
+import bookCover from './images/book-cover-new.jpeg';
+import authorPortrait from './images/author-portrait.png';
 
 // --- Components ---
 
@@ -45,7 +45,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-maroon-dark/80 backdrop-blur-xl py-4' : 'bg-transparent py-8'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -72,7 +72,7 @@ const Navbar = () => {
           <motion.button
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="px-6 py-2 bg-gold text-maroon-dark text-xs uppercase font-bold tracking-widest rounded-full hover:bg-white transition-all duration-300"
+            className="px-6 py-2 bg-gold text-maroon-dark text-xs uppercase font-bold tracking-widest rounded-full"
           >
             Pre-Order
           </motion.button>
@@ -127,7 +127,7 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden sacred-grid bg-maroon-dark">
-      <div className="max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10 py-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10 py-16 md:py-20">
         
         {/* Left Content: Text */}
         <motion.div
@@ -138,20 +138,19 @@ const Hero = () => {
         >
           <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Sacred Discipline</span>
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-[0.9] text-parchment">
-            Maha <br />
-            <span className="text-gold-gradient italic">Mantras</span>
+            Maha <span className="text-gold-gradient italic">Mantras</span>
           </h1>
           <p className="text-xl md:text-2xl text-parchment/60 font-light tracking-wide mb-12 max-w-lg">
             A structural blueprint for your consciousness. Discipline your mind. Awaken inner power.
           </p>
           
           <div className="flex flex-col sm:flex-row items-start gap-6">
-            <button className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-xl shadow-gold/10">
+            <button className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10">
               Pre-Order Now
             </button>
             <button 
               onClick={() => document.getElementById('chapters')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full hover:bg-parchment hover:text-maroon-dark transition-all duration-300"
+              className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full"
             >
               Read Sample
             </button>
@@ -159,32 +158,31 @@ const Hero = () => {
         </motion.div>
 
         {/* Right Content: Book & Mandala */}
-        <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+        <div className="relative order-1 lg:order-2 flex justify-center lg:justify-center">
           {/* Mandala - Now localized behind the book */}
           <motion.div 
             style={{ y: y1, rotate }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] opacity-15 pointer-events-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] opacity-15 pointer-events-none flex items-center justify-center"
           >
+            <div className="absolute w-1/3 h-1/3 rounded-full overflow-hidden blur-sm">
+              <img src={authorImage} alt="" className="w-full h-full object-cover grayscale" />
+            </div>
             <MandalaGrid className="w-full h-full text-gold" />
           </motion.div>
 
-          {/* Book Mockup */}
+          {/* Book Mockup - Replaced with actual image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.2 }}
-            className="relative w-64 h-96 md:w-80 md:h-[480px] group"
+            className="relative w-64 h-auto md:w-96"
           >
-            <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full group-hover:bg-gold/30 transition-all duration-700" />
-            <div className="relative w-full h-full bg-maroon border border-gold/30 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm overflow-hidden flex flex-col items-center justify-center p-8 text-center">
-              <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/dark-leather.png')]"></div>
-              <DharmaChakra className="w-24 h-24 text-gold mb-8 relative z-10" />
-              <h2 className="font-serif text-xl text-parchment mb-2 relative z-10 tracking-[0.1em]">LIFE-CHANGING</h2>
-              <h2 className="font-serif text-4xl text-gold-gradient font-bold relative z-10">MAHA</h2>
-              <h2 className="font-serif text-4xl text-gold-gradient font-bold relative z-10 tracking-[0.2em]">MANTRAS</h2>
-              <div className="absolute bottom-8 left-0 w-full h-px bg-gold/20" />
-              <span className="absolute bottom-4 text-[8px] uppercase tracking-[0.3em] text-gold/60 relative z-10">The Science of Living the Gita</span>
-            </div>
+            <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full" />
+            <img 
+              src={bookCover} 
+              alt="Maha Mantras Book Cover" 
+              className="relative w-full h-auto shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm"
+            />
           </motion.div>
         </div>
       </div>
@@ -205,7 +203,7 @@ const Hero = () => {
 
 const AuthoritySection = () => {
   return (
-    <section id="book" className="py-32 px-6 bg-maroon-dark relative overflow-hidden">
+    <section id="book" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -214,7 +212,7 @@ const AuthoritySection = () => {
           transition={{ duration: 0.8 }}
         >
           <LotusGeometry className="w-16 h-16 text-gold/20 mx-auto mb-12" />
-          <h2 className="text-4xl md:text-6xl font-serif mb-12 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-serif mb-12 leading-tight text-parchment">
             The world is loud. <br />
             <span className="text-gold italic">Your mind doesn't have to be.</span>
           </h2>
@@ -232,7 +230,7 @@ const AuthoritySection = () => {
               to build an inner fortress that no external chaos can penetrate.
             </p>
           </div>
-          <div className="mt-16 flex justify-center">
+          <div className="mt-10 md:mt-12 flex justify-center">
             <div className="w-24 h-px bg-gold/30" />
           </div>
         </motion.div>
@@ -336,12 +334,12 @@ const ChaptersSection = () => {
   ];
 
   return (
-    <section id="chapters" className="py-32 px-6 bg-maroon-dark relative overflow-hidden border-y border-gold/10">
+    <section id="chapters" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden border-y border-gold/10">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
           <div className="max-w-2xl">
             <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Sacred Journey</span>
-            <h2 className="text-5xl md:text-8xl font-serif leading-none">The Ten Maha Mantras</h2>
+            <h2 className="text-5xl md:text-8xl font-serif leading-none text-parchment">The Ten Maha Mantras</h2>
           </div>
           <p className="text-parchment/40 uppercase tracking-widest text-xs font-medium pb-4">
             Extracted from 364 Pages of Wisdom
@@ -356,19 +354,15 @@ const ChaptersSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="group relative bg-maroon-dark p-8 md:p-16 flex flex-col gap-10 hover:bg-maroon/10 transition-all duration-700"
+              className="relative bg-maroon-dark p-8 md:p-16 flex flex-col gap-10"
             >
               <div className="flex flex-col md:flex-row gap-8 md:items-start justify-between">
                 <div className="flex items-baseline gap-6">
-                  <span className="font-serif text-gold/20 text-4xl group-hover:text-gold transition-colors duration-500">{chapter.num}</span>
+                  <span className="font-serif text-gold/20 text-4xl">{chapter.num}</span>
                   <div className="space-y-2">
-                    <h3 className="text-3xl md:text-5xl font-serif text-parchment group-hover:text-gold transition-colors duration-500">{chapter.title}</h3>
+                    <h3 className="text-3xl md:text-5xl font-serif text-parchment">{chapter.title}</h3>
                     <p className="text-gold/40 font-serif italic text-lg max-w-xl leading-snug">"{chapter.verse}"</p>
                   </div>
-                </div>
-                <div className="flex flex-col items-end gap-2">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-gold/40">Chapter Page</span>
-                  <span className="font-serif text-3xl text-gold/60">{chapter.page}</span>
                 </div>
               </div>
               
@@ -392,93 +386,7 @@ const ChaptersSection = () => {
                       {chapter.takeaway}
                     </p>
                   </div>
-                  
-                  <div className="flex justify-end">
-                    <button className="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-gold hover:text-white transition-colors group/btn">
-                      Explore this mantra
-                      <div className="w-8 h-8 rounded-full border border-gold/20 flex items-center justify-center group-hover/btn:bg-gold group-hover/btn:text-maroon-dark transition-all">
-                        <ArrowRight size={14} />
-                      </div>
-                    </button>
-                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const WisdomFrameworks = () => {
-  const frameworks = [
-    {
-      title: "Discovering Your Svadharma",
-      subtitle: "Three Timeless Ways",
-      items: [
-        { name: "The Art of Stillness", detail: "Listen to the voice within. In deep silence, your inner compass begins to show the way." },
-        { name: "The 'What If' Scenario", detail: "If you had everything you ever wanted, what would you do next? That is your soul's pure desire." },
-        { name: "Work As Love", detail: "When labour feels like devotion and the doing itself is the reward, you have found your rhythm." }
-      ]
-    },
-    {
-      title: "The Art of Surrender",
-      subtitle: "Three Steps of Sharanagati",
-      items: [
-        { name: "Total Acceptance", detail: "Stop fighting what is. Align yourself with what life is offering in this present moment." },
-        { name: "Faith in the Future", detail: "Stop feeling like you must control everything. Trust that life is looking out for you." },
-        { name: "Living Like Krishna", detail: "Act with totality but without craving. Become the hollow flute for the divine melody." }
-      ]
-    },
-    {
-      title: "The Path of Samatva",
-      subtitle: "Three Great Formulas",
-      items: [
-        { name: "Life as Play", detail: "See life as a divine leela. You are a participant in a sacred choreography, not the master planner." },
-        { name: "Dissolve the Need", detail: "Remove the desire to receive love. When you stop needing, you become the source." },
-        { name: "Unconditional Love", detail: "Give love without hooks or transactions. Love the friend and the foe equally." }
-      ]
-    }
-  ];
-
-  return (
-    <section className="py-32 px-6 bg-maroon relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10">
-        <MandalaGrid className="w-full h-full text-gold" />
-      </div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-24">
-          <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">Actionable Wisdom</span>
-          <h2 className="text-5xl md:text-7xl font-serif text-parchment">The Science of Living</h2>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-12">
-          {frameworks.map((f, i) => (
-            <motion.div
-              key={f.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="glass p-10 rounded-3xl border-gold/10 flex flex-col h-full"
-            >
-              <span className="text-gold/60 uppercase tracking-widest text-[10px] mb-2 block">{f.subtitle}</span>
-              <h3 className="text-3xl font-serif text-parchment mb-10 border-b border-gold/10 pb-6">{f.title}</h3>
-              
-              <div className="space-y-8 flex-1">
-                {f.items.map((item, idx) => (
-                  <div key={item.name} className="space-y-2">
-                    <div className="flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gold" />
-                      <h4 className="text-gold font-medium uppercase tracking-wider text-xs">{item.name}</h4>
-                    </div>
-                    <p className="text-parchment/60 font-light leading-relaxed pl-4 border-l border-gold/5">
-                      {item.detail}
-                    </p>
-                  </div>
-                ))}
               </div>
             </motion.div>
           ))}
@@ -523,9 +431,9 @@ const BenefitsSection = () => {
   ];
 
   return (
-    <section id="benefits" className="py-32 px-6 bg-parchment text-maroon-dark">
+    <section id="benefits" className="py-20 md:py-24 px-4 md:px-6 bg-parchment text-maroon-dark">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24">
+        <div className="text-center mb-16 md:mb-20">
           <span className="text-gold-muted uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Transformation</span>
           <h2 className="text-5xl md:text-7xl font-serif">What You Will Gain</h2>
         </div>
@@ -538,9 +446,9 @@ const BenefitsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 border border-maroon-dark/10 rounded-2xl hover:border-gold/50 transition-all duration-500 group"
+              className="p-8 border border-maroon-dark/10 rounded-2xl"
             >
-              <div className="w-12 h-12 bg-maroon text-parchment rounded-full flex items-center justify-center mb-6 group-hover:bg-gold transition-colors">
+              <div className="w-12 h-12 bg-maroon text-parchment rounded-full flex items-center justify-center mb-6">
                 {benefit.icon}
               </div>
               <h3 className="text-2xl font-serif mb-4">{benefit.title}</h3>
@@ -557,8 +465,8 @@ const BenefitsSection = () => {
 
 const PreviewSection = () => {
   return (
-    <section id="preview" className="py-32 px-6 bg-maroon-dark relative overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+    <section id="preview" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
         <div className="flex-1">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -566,7 +474,7 @@ const PreviewSection = () => {
             viewport={{ once: true }}
           >
             <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">Inside the Pages</span>
-            <h2 className="text-5xl md:text-7xl font-serif mb-8 italic">A Mental Operating System</h2>
+            <h2 className="text-5xl md:text-7xl font-serif mb-8 italic text-parchment">A Mental Operating System</h2>
             <p className="text-xl text-parchment/60 font-light leading-relaxed mb-12">
               This is not a motivational book. It is a technical manual for the human mind. 
               Each page is designed with Apple-level precision to ensure the knowledge 
@@ -588,9 +496,9 @@ const PreviewSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative z-10 aspect-[4/5] bg-parchment rounded-lg shadow-2xl p-12 overflow-hidden"
+            className="relative z-10 aspect-[4/5] bg-parchment rounded-lg shadow-2xl p-8 md:p-10 overflow-hidden"
           >
-            <div className="h-full border border-maroon-dark/5 p-8 flex flex-col justify-between">
+            <div className="h-full border border-maroon-dark/5 p-6 md:p-8 flex flex-col justify-between">
               <div className="flex justify-between items-start">
                 <span className="text-[10px] uppercase tracking-widest text-maroon-dark/40">Chapter 04</span>
                 <DharmaChakra className="w-6 h-6 text-gold/40" />
@@ -622,23 +530,21 @@ const PreviewSection = () => {
 
 const AuthorSection = () => {
   return (
-    <section id="author" className="py-32 px-6 bg-parchment text-maroon-dark">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
+    <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-parchment text-maroon-dark">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
         <div className="w-full md:w-1/3">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="aspect-[3/4] bg-maroon rounded-2xl overflow-hidden relative group"
-          >
-            <img 
-              src="https://picsum.photos/seed/spiritual-author/800/1000" 
-              alt="Sākṣhī Shree" 
-              className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark to-transparent opacity-60" />
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="aspect-square rounded-2xl overflow-hidden relative bg-black shadow-2xl shadow-black/20"
+            >
+              <img 
+                src={authorPortrait} 
+                alt="Sakshi Shree" 
+                className="w-full h-full object-contain object-center"
+              />
+            </motion.div>
         </div>
         <div className="flex-1">
           <motion.div
@@ -647,9 +553,9 @@ const AuthorSection = () => {
             viewport={{ once: true }}
           >
             <span className="text-gold-muted uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Enlightened Master</span>
-            <h2 className="text-5xl md:text-7xl font-serif mb-8">Sākṣhī Shree</h2>
+            <h2 className="text-5xl md:text-7xl font-serif mb-8">Sakshi Shree</h2>
             <p className="text-xl text-maroon-dark/70 font-light leading-relaxed mb-8">
-              Born Rām Krishna Upādhyāya, Sākṣhī Shree is a rare triad: an enlightened master, a householder, and a former civil servant. 
+              Born Rām Krishna Upādhyāya, Sakshi Shree is a rare triad: an enlightened master, a householder, and a former civil servant. 
               Mentored by Swami Sudarshanacharya Ji Maharaj, he bridges the gap between ancient Himalayan wisdom and the modern boardroom.
             </p>
             <p className="text-lg text-maroon-dark/60 font-light leading-relaxed mb-12 italic border-l-4 border-gold/20 pl-8">
@@ -690,7 +596,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-32 px-6 bg-maroon-dark">
+    <section className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8">
           {reviews.map((review, i) => (
@@ -700,7 +606,7 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-10 glass rounded-3xl"
+              className="p-8 glass rounded-3xl"
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(review.stars)].map((_, i) => (
@@ -744,12 +650,12 @@ const PreOrderSection = () => {
   }, []);
 
   return (
-    <section className="py-32 px-6 bg-maroon-dark relative overflow-hidden">
+    <section className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden">
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <LotusGeometry className="absolute -top-20 -right-20 w-[600px] h-[600px] text-gold" />
       </div>
 
-      <div className="max-w-5xl mx-auto glass rounded-[40px] p-12 md:p-24 text-center relative z-10 border-gold/20">
+      <div className="max-w-5xl mx-auto glass rounded-[40px] p-10 md:p-16 text-center relative z-10 border-gold/20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -758,13 +664,13 @@ const PreOrderSection = () => {
           <span className="inline-block px-4 py-1 bg-gold/10 border border-gold/30 rounded-full text-gold text-[10px] uppercase tracking-widest mb-8">
             Limited First Edition
           </span>
-          <h2 className="text-5xl md:text-8xl font-serif mb-8">Reserve Your Legacy</h2>
-          <p className="text-xl text-parchment/60 font-light mb-16 max-w-2xl mx-auto">
+          <h2 className="text-5xl md:text-8xl font-serif mb-8 text-parchment">Reserve Your Legacy</h2>
+          <p className="text-xl text-parchment/60 font-light mb-10 md:mb-12 max-w-2xl mx-auto">
             Pre-order the premium hardcover edition today and receive the exclusive 
             "Sacred Sound" digital companion and a hand-signed bookmark.
           </p>
 
-          <div className="flex justify-center gap-4 md:gap-12 mb-16">
+          <div className="flex justify-center gap-4 md:gap-10 mb-10 md:mb-12">
             {Object.entries(timeLeft).map(([label, value]) => (
               <div key={label} className="flex flex-col items-center">
                 <span className="text-4xl md:text-6xl font-serif text-gold mb-2">{value.toString().padStart(2, '0')}</span>
@@ -775,10 +681,9 @@ const PreOrderSection = () => {
 
           <div className="flex flex-col items-center gap-8">
             <div className="flex items-baseline gap-4">
-              <span className="text-parchment/40 line-through text-2xl font-light">₹2,499</span>
-              <span className="text-parchment text-5xl font-serif">₹1,499</span>
+              <span className="text-parchment text-5xl font-serif">₹499</span>
             </div>
-            <button className="w-full md:w-auto px-16 py-6 bg-gold text-maroon-dark font-bold uppercase tracking-[0.2em] rounded-full hover:bg-white hover:scale-105 transition-all duration-500 shadow-2xl shadow-gold/20">
+            <button className="w-full md:w-auto px-16 py-6 bg-gold text-maroon-dark font-bold uppercase tracking-[0.2em] rounded-full shadow-2xl shadow-gold/20">
               Reserve Your Copy Now
             </button>
             <p className="text-xs text-parchment/40 uppercase tracking-widest">
@@ -793,7 +698,7 @@ const PreOrderSection = () => {
 
 const FinalImpact = () => {
   return (
-    <section className="py-48 px-6 bg-maroon-dark relative flex items-center justify-center text-center">
+    <section className="py-28 md:py-32 px-4 md:px-6 bg-maroon-dark relative flex items-center justify-center text-center">
       <div className="absolute inset-0 opacity-5">
         <MandalaGrid className="w-full h-full text-gold" />
       </div>
@@ -804,11 +709,11 @@ const FinalImpact = () => {
         transition={{ duration: 1.5 }}
         className="max-w-4xl relative z-10"
       >
-        <h2 className="text-4xl md:text-7xl font-serif italic leading-tight text-parchment">
+        <h2 className="text-3xl md:text-6xl lg:text-7xl font-serif italic leading-tight text-parchment max-w-3xl mx-auto">
           “This is not just a book. <br />
           It is a discipline system for your mind.”
         </h2>
-        <div className="mt-16 flex justify-center">
+        <div className="mt-10 md:mt-12 flex justify-center">
           <LotusGeometry className="w-12 h-12 text-gold/20" />
         </div>
       </motion.div>
@@ -818,7 +723,7 @@ const FinalImpact = () => {
 
 const GlossarySection = () => {
   const terms = [
-    { term: "Sākṣhī", meaning: "The inner witness; awareness that observes without judgement." },
+    { term: "Sakshi", meaning: "The inner witness; awareness that observes without judgement." },
     { term: "Svadharma", meaning: "One’s own right path; what is truly ‘yours to do’." },
     { term: "Nishkama Karma", meaning: "Action performed without clinging to results; pure doing." },
     { term: "Gunatita", meaning: "One who lives beyond the gunas; free of compulsive reactions." },
@@ -827,11 +732,11 @@ const GlossarySection = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-maroon-dark/50">
+    <section className="py-16 md:py-20 px-4 md:px-6 bg-maroon-dark/50">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
+        <div className="mb-10 md:mb-12">
           <span className="text-gold uppercase tracking-[0.3em] text-[10px] mb-2 block font-bold">Wisdom Lexicon</span>
-          <h2 className="text-4xl font-serif">Key Sanskrit Terms</h2>
+          <h2 className="text-4xl font-serif text-parchment">Key Sanskrit Terms</h2>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
           {terms.map((item) => (
@@ -847,38 +752,46 @@ const GlossarySection = () => {
 };
 
 const Footer = () => {
+  const socialLinks = [
+    { icon: <Instagram size={18} />, url: 'https://www.instagram.com/sakshishreeofficial?igsh=MXY2dzN4MXU4MmYyMg==' },
+    { icon: <Youtube size={18} />, url: 'https://www.youtube.com/@sakshishree' },
+    { icon: <Facebook size={18} />, url: 'https://www.facebook.com/sakshishreeofficial/' }
+  ];
+
   return (
-    <footer className="py-20 px-6 bg-maroon-dark border-t border-white/5">
+    <footer className="py-14 md:py-16 px-4 md:px-6 bg-maroon-dark border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-12 mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10 mb-10 md:mb-12">
           <div className="flex items-center gap-3">
             <DharmaChakra className="w-8 h-8 text-gold" />
             <span className="font-serif text-xl tracking-widest uppercase text-parchment">Maha Mantras</span>
           </div>
           
-          <div className="flex gap-12">
+          <div className="flex gap-8 md:gap-10">
             {['Privacy', 'Terms', 'Shipping', 'Contact'].map((item) => (
-              <a key={item} href="#" className="text-[10px] uppercase tracking-widest text-parchment/40 hover:text-gold transition-colors">
+              <a key={item} href="#" className="text-sm uppercase tracking-wider text-parchment/50 hover:text-gold transition-colors">
                 {item}
               </a>
             ))}
           </div>
 
           <div className="flex gap-6">
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all">
-              <Instagram size={18} />
-            </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all">
-              <Twitter size={18} />
-            </a>
-            <a href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all">
-              <Linkedin size={18} />
-            </a>
+            {socialLinks.map((link, idx) => (
+              <a 
+                key={idx} 
+                href={link.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all"
+              >
+                {link.icon}
+              </a>
+            ))}
           </div>
         </div>
         
         <div className="text-center">
-          <p className="text-[10px] uppercase tracking-[0.3em] text-parchment/20">
+          <p className="text-sm uppercase tracking-[0.25em] text-parchment/30">
             © 2026 Maha Mantras Publishing. All Rights Reserved.
           </p>
         </div>
@@ -896,7 +809,6 @@ export default function App() {
       <Hero />
       <AuthoritySection />
       <ChaptersSection />
-      <WisdomFrameworks />
       <BenefitsSection />
       <PreviewSection />
       <AuthorSection />
