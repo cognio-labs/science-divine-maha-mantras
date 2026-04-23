@@ -31,9 +31,15 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
       // Prevent scrolling when modal is open
       const previousOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') onClose();
+      };
+      window.addEventListener('keydown', handleKeyDown);
       
       return () => {
         document.body.style.overflow = previousOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
       };
     }
   }, [isOpen]);
@@ -46,7 +52,7 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
       className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10"
     >
       <div 
-        className="absolute inset-0 bg-maroon-dark/95 backdrop-blur-xl" 
+        className="absolute inset-0 bg-maroon-dark/90 backdrop-blur-xl" 
         onClick={onClose} 
       />
       
@@ -54,22 +60,17 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        className="relative w-full max-w-3xl bg-parchment rounded-[32px] overflow-hidden shadow-2xl flex flex-col h-[85vh] md:h-[80vh] border border-gold/20"
+        className="relative w-full max-w-3xl bg-maroon-dark rounded-[32px] overflow-hidden shadow-2xl flex flex-col h-[85vh] md:h-[80vh] border border-gold/20"
       >
-        <div className="flex justify-between items-center p-6 border-b border-maroon-dark/5 bg-white/50">
-          <div className="flex items-center gap-3">
-            <DharmaChakra className="w-6 h-6 text-gold" />
-            <span className="font-serif text-lg tracking-widest uppercase text-maroon-dark">Secure Your Copy</span>
-          </div>
-          <button 
-            onClick={onClose}
-            className="p-2 hover:bg-maroon-dark/5 rounded-full transition-colors text-maroon-dark"
-          >
-            <X size={24} />
-          </button>
-        </div>
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 p-2 rounded-full border border-gold/30 bg-maroon-dark/70 text-gold hover:bg-maroon-dark transition-colors"
+          aria-label="Close"
+        >
+          <X size={22} />
+        </button>
         
-        <div className="flex-1 overflow-auto bg-white/30">
+        <div className="flex-1 overflow-auto bg-parchment">
           <iframe
             src="https://api.leadconnectorhq.com/widget/form/iheeRBxRvFxBrVakPUJC"
             style={{ width: '100%', height: '100%', border: 'none' }}
