@@ -25,6 +25,47 @@ import authorPortrait from './images/author-portrait.png';
 
 // --- Components ---
 
+const ThankYouPage = () => {
+  return (
+    <div className="min-h-screen bg-maroon-dark text-parchment selection:bg-gold/30 flex items-center justify-center px-4 md:px-6">
+      <div className="max-w-3xl w-full glass rounded-[40px] p-10 md:p-16 text-center relative border border-gold/20">
+        <div className="flex justify-center mb-8">
+          <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center bg-maroon-dark/50">
+            <DharmaChakra className="w-8 h-8 text-gold" />
+          </div>
+        </div>
+        <span className="inline-block px-4 py-1 bg-gold/10 border border-gold/30 rounded-full text-gold text-[10px] uppercase tracking-widest mb-8">
+          Pre-Order Confirmed
+        </span>
+        <h1 className="text-4xl md:text-6xl font-serif mb-6 text-parchment">
+          Thank You
+        </h1>
+        <p className="text-lg md:text-xl text-parchment/60 font-light max-w-2xl mx-auto mb-10">
+          Your pre-order details have been received. We’ll reach out with confirmation and next steps shortly.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            onClick={() => (window.location.href = '/')}
+            className="px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10"
+          >
+            Back to Home
+          </button>
+          <a
+            href="#preview"
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = '/#preview';
+            }}
+            className="px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full"
+          >
+            Read Preview
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   useEffect(() => {
     if (isOpen) {
@@ -896,6 +937,21 @@ export default function App() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
+  const query = new URLSearchParams(window.location.search);
+  const isThankYouPage = query.get('thankyou') === '1';
+
+  useEffect(() => {
+    // If the form redirects inside the iframe, "break out" to the full page.
+    // Configure your form redirect URL to: `/?thankyou=1&embed=1`
+    const currentQuery = new URLSearchParams(window.location.search);
+    const shouldBreakOut = currentQuery.get('embed') === '1' && window.self !== window.top;
+    if (!shouldBreakOut) return;
+
+    const url = new URL(window.location.href);
+    url.searchParams.delete('embed');
+    window.top.location.replace(url.toString());
+  }, []);
+
   useEffect(() => {
     const embedSrc = 'https://link.msgsndr.com/js/form_embed.js';
     const existingScript = document.querySelector(`script[src="${embedSrc}"]`);
@@ -906,6 +962,10 @@ export default function App() {
     script.async = true;
     document.body.appendChild(script);
   }, []);
+
+  if (isThankYouPage) {
+    return <ThankYouPage />;
+  }
 
   return (
     <div className="bg-maroon-dark text-parchment selection:bg-gold/30">
