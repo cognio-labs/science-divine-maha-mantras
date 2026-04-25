@@ -812,14 +812,6 @@ const Footer = () => {
 const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   useEffect(() => {
     if (isOpen) {
-      // Prevent duplicate script injection
-      if (!document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) {
-        const script = document.createElement('script');
-        script.src = "https://link.msgsndr.com/js/form_embed.js";
-        script.async = true;
-        document.body.appendChild(script);
-      }
-      
       // Prevent scrolling when modal is open
       document.body.style.overflow = 'hidden';
       
@@ -855,20 +847,9 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
           <X size={20} />
         </button>
         
-        <div className="w-full overflow-hidden flex items-start justify-center">
-          <div className="w-full" style={{ height: 'auto', minHeight: '400px' }}>
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/form/iheeRBxRvFxBrVakPUJC"
-              style={{ width: '100%', height: '480px', border: 'none', borderRadius: '10px', overflow: 'hidden', display: 'block', background: 'transparent' }}
-              id="inline-iheeRBxRvFxBrVakPUJC"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-activation-type="alwaysActivated"
-              data-deactivation-type="neverDeactivate"
-              title="maha mantras form"
-              frameBorder={0}
-            />
-          </div>
+        <div className="w-full p-12 text-center">
+          <h3 className="font-serif text-3xl text-maroon-dark mb-4">Registration Opening Soon</h3>
+          <p className="text-maroon-dark/60">We are currently updating our pre-order system. Please check back shortly to reserve your copy.</p>
         </div>
       </motion.div>
     </motion.div>
