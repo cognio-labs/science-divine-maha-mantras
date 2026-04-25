@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "motion/react";
 
 export const DharmaChakra = ({ className }: { className?: string }) => (

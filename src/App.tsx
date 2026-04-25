@@ -20,120 +20,10 @@ import {
 } from 'lucide-react';
 import { DharmaChakra, LotusGeometry, SoundWave, MandalaGrid } from './components/SacredArt';
 import authorImage from './images/author-image.png';
-import bookCover from './images/book-cover-new.jpeg';
+import bookCover from './images/book-mockup-final.png';
 import authorPortrait from './images/author-portrait.png';
 
 // --- Components ---
-
-const ThankYouPage = () => {
-  return (
-    <div className="min-h-screen bg-maroon-dark text-parchment selection:bg-gold/30 flex items-center justify-center px-4 md:px-6">
-      <div className="max-w-3xl w-full glass rounded-[40px] p-10 md:p-16 text-center relative border border-gold/20">
-        <div className="flex justify-center mb-8">
-          <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center bg-maroon-dark/50">
-            <DharmaChakra className="w-8 h-8 text-gold" />
-          </div>
-        </div>
-        <span className="inline-block px-4 py-1 bg-gold/10 border border-gold/30 rounded-full text-gold text-[10px] uppercase tracking-widest mb-8">
-          Pre-Order Confirmed
-        </span>
-        <h1 className="text-4xl md:text-6xl font-serif mb-6 text-parchment">
-          Thank You
-        </h1>
-        <p className="text-lg md:text-xl text-parchment/60 font-light max-w-2xl mx-auto mb-10">
-          Your pre-order details have been received. We’ll reach out with confirmation and next steps shortly.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={() => (window.location.href = '/')}
-            className="px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10"
-          >
-            Back to Home
-          </button>
-          <a
-            href="#preview"
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = '/#preview';
-            }}
-            className="px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full"
-          >
-            Read Preview
-          </a>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
-  useEffect(() => {
-    if (isOpen) {
-      // Prevent scrolling when modal is open
-      const previousOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-
-      const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === 'Escape') onClose();
-      };
-      window.addEventListener('keydown', handleKeyDown);
-      
-      return () => {
-        document.body.style.overflow = previousOverflow;
-        window.removeEventListener('keydown', handleKeyDown);
-      };
-    }
-  }, [isOpen]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10"
-    >
-      <div 
-        className="absolute inset-0 bg-maroon-dark/90 backdrop-blur-xl" 
-        onClick={onClose} 
-      />
-      
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        className="relative w-full max-w-3xl bg-maroon-dark rounded-[32px] overflow-hidden shadow-2xl flex flex-col h-[85vh] md:h-[80vh] border border-gold/20"
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full border border-gold/30 bg-maroon-dark/70 text-gold hover:bg-maroon-dark transition-colors"
-          aria-label="Close"
-        >
-          <X size={22} />
-        </button>
-        
-        <div className="flex-1 overflow-auto bg-parchment">
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/form/iheeRBxRvFxBrVakPUJC"
-            style={{ width: '100%', height: '100%', border: 'none' }}
-            id="inline-iheeRBxRvFxBrVakPUJC" 
-            data-layout="{'id':'INLINE'}"
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="maha mantras form "
-            data-height="undefined"
-            data-layout-iframe-id="inline-iheeRBxRvFxBrVakPUJC"
-            data-form-id="iheeRBxRvFxBrVakPUJC"
-            title="maha mantras form "
-          />
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-};
 
 const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -466,7 +356,7 @@ const ChaptersSection = () => {
           </p>
         </div>
 
-        <div className="grid gap-px bg-gold/10 border border-gold/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {chapters.map((chapter, i) => (
             <motion.div
               key={chapter.num}
@@ -474,36 +364,35 @@ const ChaptersSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="relative bg-maroon-dark p-8 md:p-16 flex flex-col gap-10"
+              className={`relative bg-gradient-to-br from-white/[0.03] to-transparent p-6 md:p-8 rounded-[2rem] border border-gold/10 hover:border-gold/30 transition-all duration-500 group flex flex-col h-full ${
+                i === 9 ? 'lg:col-start-2' : ''
+              }`}
             >
-              <div className="flex flex-col md:flex-row gap-8 md:items-start justify-between">
-                <div className="flex items-baseline gap-6">
-                  <span className="font-serif text-gold/20 text-4xl">{chapter.num}</span>
-                  <div className="space-y-2">
-                    <h3 className="text-3xl md:text-5xl font-serif text-parchment">{chapter.title}</h3>
-                    <p className="text-gold/40 font-serif italic text-lg max-w-xl leading-snug">"{chapter.verse}"</p>
-                  </div>
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex items-start justify-between mb-6">
+                  <span className="font-serif text-gold/30 text-4xl group-hover:text-gold transition-colors duration-500">{chapter.num}</span>
+                  <LotusGeometry className="w-8 h-8 text-gold/10 group-hover:text-gold/30 transition-all" />
                 </div>
-              </div>
-              
-              <div className="grid md:grid-cols-2 gap-12 border-t border-gold/5 pt-10">
-                <div className="space-y-6">
+                
+                <div className="mb-6">
+                  <h3 className="text-2xl font-serif text-parchment leading-tight mb-3 min-h-[3.5rem]">{chapter.title}</h3>
+                  <p className="text-gold/50 font-serif italic text-sm leading-snug line-clamp-2">"{chapter.verse}"</p>
+                </div>
+                
+                <div className="space-y-4 flex-grow">
                   <div className="space-y-2">
-                    <span className="text-[10px] uppercase tracking-widest text-gold font-bold">The Essence</span>
-                    <p className="text-parchment/70 font-light leading-relaxed text-lg">
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold">The Essence</span>
+                    <p className="text-parchment/60 font-light leading-relaxed text-[15px] line-clamp-4">
                       {chapter.desc}
                     </p>
                   </div>
-                  <div className="p-6 bg-gold/5 border-l-2 border-gold/30 italic text-parchment/90">
-                    {chapter.translation}
-                  </div>
                 </div>
 
-                <div className="space-y-6 flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <span className="text-[10px] uppercase tracking-widest text-gold font-bold">Key Takeaway</span>
-                    <p className="text-parchment/80 font-medium text-xl leading-relaxed">
-                      {chapter.takeaway}
+                <div className="mt-8 pt-6 border-t border-gold/10">
+                  <div className="p-4 bg-maroon-dark/40 rounded-2xl border border-white/5 shadow-inner">
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-2">Key Takeaway</span>
+                    <p className="text-parchment/90 font-medium text-sm md:text-base leading-snug italic">
+                      "{chapter.takeaway}"
                     </p>
                   </div>
                 </div>
@@ -516,40 +405,30 @@ const ChaptersSection = () => {
   );
 };
 
-const BenefitsSection = () => {
-  const benefits = [
-    {
-      title: "Mental Clarity",
-      desc: "Dissolve the fog of overthinking and see your path with absolute precision.",
-      icon: <Compass className="w-6 h-6" />,
-    },
-    {
-      title: "Focus & Discipline",
-      desc: "Train your attention to stay where you place it, for as long as you need.",
-      icon: <Zap className="w-6 h-6" />,
-    },
-    {
-      title: "Inner Stability",
-      desc: "Remain unmoved by external events, anchored in your own spiritual center.",
-      icon: <Anchor className="w-6 h-6" />,
-    },
-    {
-      title: "Spiritual Strength",
-      desc: "Access the latent power within your DNA through sacred sound vibrations.",
-      icon: <Shield className="w-6 h-6" />,
-    },
-    {
-      title: "Detachment",
-      desc: "Observe the world without being consumed by it. Freedom from chaos.",
-      icon: <BookOpen className="w-6 h-6" />,
-    },
-    {
-      title: "Deep Peace",
-      desc: "A silence that is not empty, but full of presence and awareness.",
-      icon: <Star className="w-6 h-6" />,
-    }
-  ];
+const benefits = [
+  {
+    title: "Mental Clarity",
+    desc: "Dissolve the fog of overthinking and see your path with absolute precision.",
+    icon: <Zap className="w-6 h-6" />,
+  },
+  {
+    title: "Spiritual Strength",
+    desc: "Access the latent power within your DNA through sacred sound vibrations.",
+    icon: <Shield className="w-6 h-6" />,
+  },
+  {
+    title: "Detachment",
+    desc: "Observe the world without being consumed by it. Freedom from chaos.",
+    icon: <BookOpen className="w-6 h-6" />,
+  },
+  {
+    title: "Deep Peace",
+    desc: "Sink into the heart's quiet and remain steady in any storm.",
+    icon: <Star className="w-6 h-6" />,
+  },
+];
 
+const BenefitsSection = () => {
   return (
     <section id="benefits" className="py-20 md:py-24 px-4 md:px-6 bg-parchment text-maroon-dark">
       <div className="max-w-7xl mx-auto">
@@ -691,7 +570,7 @@ const AuthorSection = () => {
             </p>
             <div className="flex items-center gap-6">
               <div className="w-12 h-px bg-gold" />
-              <span className="font-serif italic text-xl text-gold/80">Founder of the Science Divine Foundation</span>
+              <span className="font-serif italic text-xl text-gold/80">Guided by the Wisdom of the Gita</span>
             </div>
           </motion.div>
         </div>
@@ -930,42 +809,78 @@ const Footer = () => {
   );
 };
 
+const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  useEffect(() => {
+    if (isOpen) {
+      // Prevent duplicate script injection
+      if (!document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) {
+        const script = document.createElement('script');
+        script.src = "https://link.msgsndr.com/js/form_embed.js";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+      
+      // Prevent scrolling when modal is open
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        document.body.style.overflow = 'unset';
+      };
+    }
+  }, [isOpen]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6"
+    >
+      <div 
+        className="absolute inset-0 bg-maroon-dark/95 backdrop-blur-sm" 
+        onClick={onClose} 
+      />
+      
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        className="relative w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl border border-gold/20 flex flex-col"
+      >
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 z-[110] p-2 bg-maroon-dark/10 hover:bg-maroon-dark/20 rounded-full transition-colors text-maroon-dark"
+          aria-label="Close"
+        >
+          <X size={20} />
+        </button>
+        
+        <div className="w-full overflow-hidden flex items-start justify-center">
+          <div className="w-full" style={{ height: 'auto', minHeight: '400px' }}>
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/iheeRBxRvFxBrVakPUJC"
+              style={{ width: '100%', height: '480px', border: 'none', borderRadius: '10px', overflow: 'hidden', display: 'block', background: 'transparent' }}
+              id="inline-iheeRBxRvFxBrVakPUJC"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-activation-type="alwaysActivated"
+              data-deactivation-type="neverDeactivate"
+              title="maha mantras form"
+              frameBorder={0}
+            />
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 // --- Main App ---
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-
-  const query = new URLSearchParams(window.location.search);
-  const isThankYouPage = query.get('thankyou') === '1';
-
-  useEffect(() => {
-    // If the form redirects inside the iframe, "break out" to the full page.
-    // Configure your form redirect URL to: `/?thankyou=1&embed=1`
-    const currentQuery = new URLSearchParams(window.location.search);
-    const shouldBreakOut = currentQuery.get('embed') === '1' && window.self !== window.top;
-    if (!shouldBreakOut) return;
-
-    const url = new URL(window.location.href);
-    url.searchParams.delete('embed');
-    window.top.location.replace(url.toString());
-  }, []);
-
-  useEffect(() => {
-    const embedSrc = 'https://link.msgsndr.com/js/form_embed.js';
-    const existingScript = document.querySelector(`script[src="${embedSrc}"]`);
-    if (existingScript) return;
-
-    const script = document.createElement('script');
-    script.src = embedSrc;
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
-  if (isThankYouPage) {
-    return <ThankYouPage />;
-  }
 
   return (
     <div className="bg-maroon-dark text-parchment selection:bg-gold/30">
