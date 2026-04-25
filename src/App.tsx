@@ -20,8 +20,8 @@ import {
 } from 'lucide-react';
 import { DharmaChakra, LotusGeometry, SoundWave, MandalaGrid } from './components/SacredArt';
 import authorImage from './images/author-image.png';
-import bookCover from './images/maha-book.jpeg';
-import authorPortrait from './images/author-portrait.png';
+import bookCover from './images/book.jpeg';
+import authorPortrait from './images/author-portrait-premium.png';
 
 // --- Components ---
 
@@ -356,7 +356,7 @@ const ChaptersSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {chapters.map((chapter, i) => (
             <motion.div
               key={chapter.num}
@@ -365,7 +365,7 @@ const ChaptersSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               className={`relative bg-gradient-to-br from-white/[0.03] to-transparent p-6 md:p-8 rounded-[2rem] border border-gold/10 hover:border-gold/30 transition-all duration-500 group flex flex-col h-full ${
-                i === 9 ? 'lg:col-start-2' : ''
+                i >= 8 ? 'lg:col-span-2 max-w-xl mx-auto w-full' : ''
               }`}
             >
               <div className="relative z-10 flex flex-col h-full">
@@ -375,23 +375,23 @@ const ChaptersSection = () => {
                 </div>
                 
                 <div className="mb-6">
-                  <h3 className="text-2xl font-serif text-parchment leading-tight mb-3 min-h-[3.5rem]">{chapter.title}</h3>
-                  <p className="text-gold/50 font-serif italic text-sm leading-snug line-clamp-2">"{chapter.verse}"</p>
+                  <h3 className="text-xl font-serif text-parchment leading-tight mb-3 min-h-[3rem]">{chapter.title}</h3>
+                  <p className="text-gold/50 font-serif italic text-xs leading-snug line-clamp-2">"{chapter.verse}"</p>
                 </div>
                 
                 <div className="space-y-4 flex-grow">
                   <div className="space-y-2">
                     <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold">The Essence</span>
-                    <p className="text-parchment/60 font-light leading-relaxed text-[15px] line-clamp-4">
+                    <p className="text-parchment/60 font-light leading-relaxed text-[13px] line-clamp-3">
                       {chapter.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-gold/10">
-                  <div className="p-4 bg-maroon-dark/40 rounded-2xl border border-white/5 shadow-inner">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-2">Key Takeaway</span>
-                    <p className="text-parchment/90 font-medium text-sm md:text-base leading-snug italic">
+                <div className="mt-6 pt-4 border-t border-gold/10">
+                  <div className="p-3 bg-maroon-dark/40 rounded-xl border border-white/5 shadow-inner">
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-1">Key Takeaway</span>
+                    <p className="text-parchment/90 font-medium text-xs leading-snug italic">
                       "{chapter.takeaway}"
                     </p>
                   </div>
@@ -437,7 +437,7 @@ const BenefitsSection = () => {
           <h2 className="text-5xl md:text-7xl font-serif">What You Will Gain</h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, i) => (
             <motion.div
               key={benefit.title}
@@ -530,9 +530,6 @@ const PreviewSection = () => {
 const AuthorSection = () => {
   return (
     <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark text-parchment relative overflow-hidden">
-      {/* Decorative Background Element */}
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 bg-gold/5 blur-[120px] rounded-full" />
-      
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
         <div className="w-full md:w-5/12">
             <motion.div
@@ -546,7 +543,7 @@ const AuthorSection = () => {
               <img 
                 src={authorPortrait} 
                 alt="Sakshi Shree" 
-                className="w-full h-full object-cover object-top mix-blend-screen"
+                className="w-full h-full object-cover object-top"
               />
               {/* Gold frame overlay */}
               <div className="absolute inset-4 border border-gold/20 rounded-2xl pointer-events-none" />
