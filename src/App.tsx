@@ -812,6 +812,14 @@ const Footer = () => {
 const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
   useEffect(() => {
     if (isOpen) {
+      // Inject script
+      if (!document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) {
+        const script = document.createElement('script');
+        script.src = "https://link.msgsndr.com/js/form_embed.js";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+
       // Prevent scrolling when modal is open
       document.body.style.overflow = 'hidden';
       
@@ -837,7 +845,7 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="relative w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl border border-gold/20 flex flex-col"
+        className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-gold/20 flex flex-col"
       >
         <button 
           onClick={onClose}
@@ -847,9 +855,17 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
           <X size={20} />
         </button>
         
-        <div className="w-full p-12 text-center">
-          <h3 className="font-serif text-3xl text-maroon-dark mb-4">Registration Opening Soon</h3>
-          <p className="text-maroon-dark/60">We are currently updating our pre-order system. Please check back shortly to reserve your copy.</p>
+        <div className="form-container">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/iheeRBxRvFxBrVakPUJC"
+            id="inline-iheeRBxRvFxBrVakPUJC"
+            data-layout='{"id":"INLINE"}'
+            data-form-name="maha mantras form"
+            data-height="100%"
+            data-layout-iframe-id="inline-iheeRBxRvFxBrVakPUJC"
+            data-form-id="iheeRBxRvFxBrVakPUJC"
+            title="maha mantras form"
+          ></iframe>
         </div>
       </motion.div>
     </motion.div>

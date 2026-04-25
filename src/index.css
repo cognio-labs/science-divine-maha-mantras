@@ -53,3 +53,33 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-gold/20 rounded-full hover:bg-gold/40 transition-colors;
 }
+
+/* Form Container & Responsive Iframe */
+.form-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 10px;
+}
+
+.form-container iframe {
+  width: 100%;
+  min-height: 650px;
+  border: none;
+  border-radius: 10px;
+}
+
+@media (max-width: 1024px) {
+  .form-container iframe {
+    min-height: 750px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 5px;
+  }
+  .form-container iframe {
+    min-height: 900px;
+  }
+}
