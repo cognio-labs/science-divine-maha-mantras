@@ -817,11 +817,13 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
         document.body.appendChild(script);
       }
 
-      // Prevent scrolling when modal is open
+      // Prevent scrolling and fix text color visibility for the form
       document.body.style.overflow = 'hidden';
+      document.body.style.color = '#4A0404';
       
       return () => {
         document.body.style.overflow = 'unset';
+        document.body.style.color = '';
       };
     }
   }, [isOpen]);
