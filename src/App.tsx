@@ -842,7 +842,7 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-gold/20 flex flex-col"
+        className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl border border-gold/20 flex flex-col max-h-[90vh] overflow-hidden"
       >
         <button 
           onClick={onClose}
@@ -852,7 +852,7 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
           <X size={20} />
         </button>
         
-        <div className="form-container">
+        <div className="form-container overflow-y-auto">
           <iframe
             src="https://api.leadconnectorhq.com/widget/form/iheeRBxRvFxBrVakPUJC"
             style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
