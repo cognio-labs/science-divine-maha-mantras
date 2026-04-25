@@ -807,8 +807,11 @@ const Footer = () => {
 };
 
 const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     if (isOpen) {
+      setIsLoading(true); // Reset loading state when opening
       // Inject script
       if (!document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]')) {
         const script = document.createElement('script');
@@ -854,10 +857,27 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
           <X size={20} />
         </button>
         
-        <div className="form-container">
+        <div className="form-container relative min-h-[400px]">
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-white z-10">
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                className="w-10 h-10 border-4 border-gold/20 border-t-gold rounded-full"
+              />
+            </div>
+          )}
           <iframe
+            onLoad={() => setIsLoading(false)}
             src="https://api.leadconnectorhq.com/widget/form/iheeRBxRvFxBrVakPUJC"
-            style={{ width: '100%', height: '100%', border: 'none', borderRadius: '8px' }}
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              border: 'none', 
+              borderRadius: '8px',
+              opacity: isLoading ? 0 : 1,
+              transition: 'opacity 0.5s ease-in-out'
+            }}
             id="inline-iheeRBxRvFxBrVakPUJC" 
             data-layout="{'id':'INLINE'}"
             data-trigger-type="alwaysShow"
