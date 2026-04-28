@@ -213,7 +213,7 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
 const AuthoritySection = () => {
   return (
-    <section id="book" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden">
+    <section id="book" className="py-20 md:py-24 px-4 md:px-6 bg-white relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -221,13 +221,13 @@ const AuthoritySection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <LotusGeometry className="w-16 h-16 text-gold/20 mx-auto mb-12" />
-          <h2 className="text-3xl md:text-6xl font-serif mb-12 leading-tight text-parchment">
+          <LotusGeometry className="w-16 h-16 text-gold-muted/30 mx-auto mb-12" />
+          <h2 className="text-3xl md:text-6xl font-serif mb-12 leading-tight text-maroon-dark">
             The world is loud. <br />
-            <span className="text-gold italic">Your mind doesn't have to be.</span>
+            <span className="text-gold-muted italic">Your mind doesn't have to be.</span>
           </h2>
-          <div className="space-y-8 text-lg md:text-xl text-parchment/70 font-light leading-relaxed max-w-2xl mx-auto">
-            <p className="italic text-gold/80 mb-8">
+          <div className="space-y-8 text-lg md:text-xl text-maroon-dark/60 font-light leading-relaxed max-w-2xl mx-auto">
+            <p className="italic text-gold-muted mb-8">
               "Who am I beyond my roles? What am I truly here for? Is there a way to live without anxiety, without conflict?"
             </p>
             <p>
@@ -235,13 +235,13 @@ const AuthoritySection = () => {
               Most people live in a state of mental fragmentation, pulled by every notification and impulse.
             </p>
             <p>
-              <span className="text-parchment font-medium">Maha Mantras</span> is not just a book of chants. 
+              <span className="text-maroon-dark font-medium">Maha Mantras</span> is not just a book of chants. 
               It is a structural blueprint for your consciousness. It uses the ancient science of sound 
               to build an inner fortress that no external chaos can penetrate.
             </p>
           </div>
           <div className="mt-10 md:mt-12 flex justify-center">
-            <div className="w-24 h-px bg-gold/30" />
+            <div className="w-24 h-px bg-gold-muted/40" />
           </div>
         </motion.div>
       </div>
