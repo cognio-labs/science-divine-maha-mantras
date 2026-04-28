@@ -332,7 +332,7 @@ const ChaptersSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8">
           {chapters.map((chapter, i) => (
             <motion.div
               key={chapter.num}
@@ -341,8 +341,7 @@ const ChaptersSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               className={`relative bg-gradient-to-br from-white/[0.03] to-transparent p-6 md:p-8 rounded-[2rem] border border-gold/10 hover:border-gold/30 transition-all duration-500 group flex flex-col h-full ${
-                i === 10 ? 'lg:col-span-4 md:col-span-2 max-w-xl mx-auto w-full' : 
-                i >= 8 ? 'lg:col-span-2 md:col-span-2' : ''
+                i >= 8 ? 'lg:col-span-4 md:col-span-2' : 'lg:col-span-3 md:col-span-1'
               }`}
             >
               <div className="relative z-10 flex flex-col h-full items-center md:items-start text-center md:text-left">
