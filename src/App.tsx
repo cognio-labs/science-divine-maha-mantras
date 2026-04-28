@@ -876,10 +876,10 @@ export default function App() {
       <Navbar onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
       <Hero onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
       <AuthoritySection />
+      <AuthorSection />
       <ChaptersSection />
       <BenefitsSection />
       <PreviewSection />
-      <AuthorSection />
       <Testimonials />
       <PreOrderSection onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
       <GlossarySection />
