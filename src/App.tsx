@@ -255,91 +255,67 @@ const ChaptersSection = () => {
       num: "01",
       title: "Find and Live Your Svadharma",
       verse: "shreyan svadharmo vigunah paradharmat sv-anushthitat...",
-      translation: "One’s own dharma, despite its imperfections, is superior to the well-executed dharma of another.",
-      desc: "Discover the natural rhythm of your being. Svadharma is choosing honesty over comfort and living in line with your sacred nature, even when it hurts.",
-      takeaway: "Nurture your unique seed until it blooms into its most beautiful form.",
-      page: "37"
+      desc: "Why do so many successful people still feel empty inside? This chapter reveals how to find the path that is truly yours—and why living anyone else's truth becomes the root of anxiety.",
     },
     {
       num: "02",
-      title: "Nishkama Karma Yoga",
+      title: "Acting Without Attachment — Living Nishkama Karma Yoga",
       verse: "karmany evadhikaras te ma phaleshu kadachana...",
-      translation: "You have a right only to action, never to its fruits.",
-      desc: "The Joy of Desireless Action. Learn the mathematical formula of truth: Karma minus Desire equals Nishkama Karma. Act from presence, not pursuit.",
-      takeaway: "You act with full presence, without anxiety, as a channel of effort and grace.",
-      page: "66"
+      desc: "What if your best work begins only when you stop obsessing over the result? This chapter shows how to act with total intensity, yet remain free from fear, craving and disappointment.",
     },
     {
       num: "03",
       title: "Step Beyond Karma, Gyana and Bhakti",
-      verse: "traigunya-vishaya veda nistraigunyo bhāva Arjuna...",
-      translation: "The Vedas deal with the three gunas, O Arjuna. But you, rise above these three qualities.",
-      desc: "Understand the three layers of the human mind: action, thought, and emotion. Transcend these 'boats' to reach the shore of pure awareness.",
-      takeaway: "Meditation is the medicine; the three paths are merely the vehicles that carry it.",
-      page: "106"
+      verse: "traigunya-vishaya veda nistraigunyo bhava Arjuna...",
+      desc: "Can action, knowledge and devotion themselves become traps? This chapter uncovers why every spiritual path needs meditation—and how awareness carries you beyond the mind.",
     },
     {
       num: "04",
       title: "Beyond Form and Formless Worship",
       verse: "evam satata-yukta ye bhaktas tvam paryupasate...",
-      translation: "Some worship You as the manifest, others meditate upon You as the imperishable.",
-      desc: "A seamless journey from Sakar (form) to Nirakar (formless). Use the idol as a jumping board to the infinite, then return the form to formlessness.",
-      takeaway: "The idol is not God; it is a portal, a pointer, and a mirror to your deeper Self.",
-      page: "146"
+      desc: "Is God found in an idol, in silence, or somewhere beyond both? This chapter shows how form becomes a bridge to the formless—and how true worship awakens the witness within.",
     },
     {
       num: "05",
-      title: "Transcend to Gunatita",
-      verse: "gunan etan atitya trin dehi deha samudbhāvan...",
-      translation: "When the embodied one rises above these three gunas, he attains immortality.",
-      desc: "Move beyond the triad of Sattva (clarity), Rajas (activity), and Tamas (inertia). Live not as a person, but as a presence in the fourth dimension.",
-      takeaway: "Freedom comes from waking up the witness who sees the dance of the gunas.",
-      page: "178"
+      title: "Beyond the Three Gunas — Entering the Fourth Dimension of Consciousness",
+      verse: "gunan etan atitya trin dehi deha samudbhavan...",
+      desc: "Are your moods, choices and struggles really yours—or are they the play of Sattva, Rajas and Tamas? This chapter reveals the fourth state beyond all conditioning: Gunatita.",
     },
     {
       num: "06",
-      title: "Surrender: The Life Force",
+      title: "Surrender — The Master Key to Self-Realization",
       verse: "sarva-dharman parityajya mam ekam sharanam vraja...",
-      translation: "Abandon all varieties of religion and simply surrender unto Me.",
-      desc: "The art of Sharanagati. Life is not a puzzle to solve but a leela (divine play) to witness. Move from the burden of karma to the lightness of play.",
-      takeaway: "Surrender is the shadow of meditation; it arises naturally when the mind is still.",
-      page: "204"
+      desc: "What happens when you stop resisting life? This chapter explores surrender not as weakness, but as the master key that turns karma into leela—life as divine play.",
     },
     {
       num: "07",
       title: "Breaking Free from the Identity Trap",
-      verse: "Kshetrajnam cha api mam viddhi sarva kshetreshu Bharata...",
-      translation: "Know Me to be the Knower in all bodies. This alone is true knowledge.",
-      desc: "Distinguish the Field (Kshetra) from the Knower (Kshetrajna). You are not the storm; you are the sky. Stop identifying with passing patterns.",
-      takeaway: "The root of all sorrow is the loss of our witnessing state (Sakshi Bhava).",
-      page: "243"
+      verse: "kshetrajnam cha api mam viddhi sarva kshetreshu Bharata...",
+      desc: "Who are you when you are not your body, your thoughts, your emotions or your story? This chapter reveals the difference between the field of experience and the silent knower within.",
     },
     {
       num: "08",
-      title: "Freedom from Rituals",
-      verse: "vedeshu yajneshu tapahsu chaiva, daneshu yat...",
-      translation: "One who has realized this knowledge transcends all the merits promised by rituals.",
-      desc: "The Essence is Everything. Rituals are signposts, not the destination. Don't worship the finger pointing at the moon; look at the moon itself.",
-      takeaway: "The real yajna is the fire of awareness that burns away the ego.",
-      page: "272"
+      title: "Freedom from Rituals — The Essence Is Everything",
+      verse: "vedeshu yajneshu tapahsu chaiva daneshu yat...",
+      desc: "When does a sacred ritual become an empty habit? This chapter cuts through mechanical spirituality and shows how every act can become a living yajna when awareness is present.",
     },
     {
       num: "09",
-      title: "The Fourfold Path",
+      title: "Fourfold Path — The Supreme Science of Living",
       verse: "kayena manasa buddhya kevalair indriyair api...",
-      translation: "The yogis perform action with body, mind, and senses, free from attachment.",
-      desc: "The Supreme Science of Living. A cosmic lifestyle design through the stages of Brahmacharya, Grihastha, Vanaprastha, and Sannyasa.",
-      takeaway: "Align outer excellence with inner evolution so ambition does not outrun meaning.",
-      page: "298"
+      desc: "Is there a science to living well across every stage of life? This chapter reimagines the four ashramas as a modern blueprint for discipline, contribution, simplification and freedom.",
     },
     {
       num: "10",
-      title: "Stay Anchored in Your Own Being",
+      title: "Samatva Yoga — Stay Anchored in Your Own Being",
       verse: "sukha-duhkhe same kritva labhalabhau jayajayau...",
-      translation: "Treat pleasure and pain, gain and loss, victory and defeat alike.",
-      desc: "Samatva Yoga: The final frontier of inner mastery. Remain steady amid the ups and downs of life. Enter the inner cave of the heart.",
-      takeaway: "Equanimity is not emotional suppression; it is spiritual transcendence.",
-      page: "324"
+      desc: "How do you stay steady when life moves between praise and blame, gain and loss, friend and foe? This chapter reveals Samatva—the inner balance that turns life itself into yoga.",
+    },
+    {
+      num: "11",
+      title: "The Science of Living the Gita",
+      verse: "",
+      desc: "How do you actually live the Gita after understanding it? This final chapter gives the practical system of Sakshi Sadhana—five tools that turn the maha mantras from wisdom into daily experience.",
     }
   ];
 
@@ -349,7 +325,7 @@ const ChaptersSection = () => {
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 md:mb-20 gap-8 text-center md:text-left">
           <div className="max-w-2xl flex flex-col items-center md:items-start">
             <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Sacred Journey</span>
-            <h2 className="text-4xl md:text-8xl font-serif leading-tight md:leading-none text-parchment">The Ten Maha Mantras</h2>
+            <h2 className="text-4xl md:text-8xl font-serif leading-tight md:leading-none text-parchment">The Eleven Chapters</h2>
           </div>
           <p className="text-parchment/40 uppercase tracking-widest text-xs font-medium pb-4">
             Extracted from 364 Pages of Wisdom
@@ -365,7 +341,7 @@ const ChaptersSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               className={`relative bg-gradient-to-br from-white/[0.03] to-transparent p-6 md:p-8 rounded-[2rem] border border-gold/10 hover:border-gold/30 transition-all duration-500 group flex flex-col h-full ${
-                i >= 8 ? 'lg:col-span-2 max-w-xl mx-auto w-full' : ''
+                i >= 8 ? 'lg:col-span-4 md:col-span-2 max-w-xl mx-auto w-full' : ''
               }`}
             >
               <div className="relative z-10 flex flex-col h-full items-center md:items-start text-center md:text-left">
@@ -376,23 +352,16 @@ const ChaptersSection = () => {
                 
                 <div className="mb-6 w-full">
                   <h3 className="text-xl font-serif text-parchment leading-tight mb-3 min-h-[3rem]">{chapter.title}</h3>
-                  <p className="text-gold/50 font-serif italic text-xs leading-snug line-clamp-2">"{chapter.verse}"</p>
+                  {chapter.verse && (
+                    <p className="text-gold/50 font-serif italic text-xs leading-snug line-clamp-2">"{chapter.verse}"</p>
+                  )}
                 </div>
                 
                 <div className="space-y-4 flex-grow">
                   <div className="space-y-2">
                     <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold">The Essence</span>
-                    <p className="text-parchment/60 font-light leading-relaxed text-[13px] line-clamp-3">
+                    <p className="text-parchment/60 font-light leading-relaxed text-[13px]">
                       {chapter.desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-gold/10 w-full">
-                  <div className="p-3 bg-maroon-dark/40 rounded-xl border border-white/5 shadow-inner">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-1">Key Takeaway</span>
-                    <p className="text-parchment/90 font-medium text-xs leading-snug italic">
-                      "{chapter.takeaway}"
                     </p>
                   </div>
                 </div>
@@ -403,6 +372,7 @@ const ChaptersSection = () => {
       </div>
     </section>
   );
+};;
 };
 
 const benefits = [
