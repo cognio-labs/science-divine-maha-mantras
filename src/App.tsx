@@ -255,7 +255,7 @@ const ChaptersSection = () => {
       num: "01",
       title: "Find and Live Your Svadharma",
       verse: "shreyan svadharmo vigunah paradharmat sv-anushthitat...",
-      desc: "Why do so many successful people still feel empty inside? This chapter reveals how to find the path that is truly yours—and why living anyone else's truth becomes the root of anxiety.",
+      desc: "Why do so many successful people still feel empty inside? This chapter reveals how to find the path that is truly yours—and why living anyone else’s truth becomes the root of anxiety.",
     },
     {
       num: "02",
@@ -341,7 +341,8 @@ const ChaptersSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               className={`relative bg-gradient-to-br from-white/[0.03] to-transparent p-6 md:p-8 rounded-[2rem] border border-gold/10 hover:border-gold/30 transition-all duration-500 group flex flex-col h-full ${
-                i >= 8 ? 'lg:col-span-4 md:col-span-2 max-w-xl mx-auto w-full' : ''
+                i === 10 ? 'lg:col-span-4 md:col-span-2 max-w-xl mx-auto w-full' : 
+                i >= 8 ? 'lg:col-span-2 md:col-span-2' : ''
               }`}
             >
               <div className="relative z-10 flex flex-col h-full items-center md:items-start text-center md:text-left">
@@ -372,7 +373,6 @@ const ChaptersSection = () => {
       </div>
     </section>
   );
-};;
 };
 
 const benefits = [
