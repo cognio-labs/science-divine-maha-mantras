@@ -72,7 +72,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
           <motion.button
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            onClick={onOpenModal}
+            onClick={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')}
             className="px-6 py-2 bg-gold text-maroon-dark text-xs uppercase font-bold tracking-widest rounded-full"
           >
             Pre-Order
@@ -113,7 +113,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
               <button 
                 onClick={() => {
                   setIsMobileMenuOpen(false);
-                  onOpenModal();
+                  window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank');
                 }}
                 className="mt-8 px-8 py-4 bg-gold text-maroon-dark text-lg uppercase font-bold tracking-widest rounded-full"
               >
@@ -141,7 +141,7 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="text-center lg:text-left order-2 lg:order-1 flex flex-col items-center lg:items-start"
+          className="text-left order-2 lg:order-1 flex flex-col items-start"
         >
           <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Sacred Discipline</span>
           <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-tight md:leading-[0.9] text-parchment">
@@ -151,9 +151,9 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
             A structural blueprint for your consciousness. Discipline your mind. Awaken inner power.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center lg:items-start gap-6">
+          <div className="flex flex-col sm:flex-row items-start gap-6">
             <button 
-              onClick={onOpenModal}
+              onClick={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')}
               className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10 hover:scale-105 active:scale-95"
             >
               Pre-Order Now
@@ -688,7 +688,7 @@ const PreOrderSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
               <span className="text-parchment text-5xl font-serif">₹499</span>
             </div>
             <button 
-              onClick={onOpenModal}
+              onClick={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')}
               className="w-full md:w-auto px-16 py-6 bg-gold text-maroon-dark font-bold uppercase tracking-[0.2em] rounded-full shadow-2xl shadow-gold/20"
             >
               Reserve Your Copy Now
@@ -902,30 +902,20 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 // --- Main App ---
 
 export default function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   return (
     <div className="bg-maroon-dark text-parchment selection:bg-gold/30">
-      <Navbar onOpenModal={openModal} />
-      <Hero onOpenModal={openModal} />
+      <Navbar onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
+      <Hero onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
       <AuthoritySection />
       <ChaptersSection />
       <BenefitsSection />
       <PreviewSection />
       <AuthorSection />
       <Testimonials />
-      <PreOrderSection onOpenModal={openModal} />
+      <PreOrderSection onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
       <GlossarySection />
       <FinalImpact />
       <Footer />
-
-      <AnimatePresence>
-        {isModalOpen && (
-          <PreOrderModal isOpen={isModalOpen} onClose={closeModal} />
-        )}
-      </AnimatePresence>
     </div>
   );
 }
