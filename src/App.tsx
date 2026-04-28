@@ -141,7 +141,7 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="text-left order-2 lg:order-1"
+          className="text-center lg:text-left order-2 lg:order-1 flex flex-col items-center lg:items-start"
         >
           <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Sacred Discipline</span>
           <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-tight md:leading-[0.9] text-parchment">
@@ -151,16 +151,16 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
             A structural blueprint for your consciousness. Discipline your mind. Awaken inner power.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-start gap-6">
+          <div className="flex flex-col sm:flex-row items-center lg:items-start gap-6">
             <button 
               onClick={onOpenModal}
-              className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10"
+              className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10 hover:scale-105 active:scale-95"
             >
               Pre-Order Now
             </button>
             <button 
               onClick={() => document.getElementById('chapters')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full"
+              className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full hover:bg-white/5 active:scale-95"
             >
               Read Sample
             </button>
@@ -346,8 +346,8 @@ const ChaptersSection = () => {
   return (
     <section id="chapters" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden border-y border-gold/10">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 gap-8">
-          <div className="max-w-2xl">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 md:mb-20 gap-8 text-center md:text-left">
+          <div className="max-w-2xl flex flex-col items-center md:items-start">
             <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Sacred Journey</span>
             <h2 className="text-4xl md:text-8xl font-serif leading-tight md:leading-none text-parchment">The Ten Maha Mantras</h2>
           </div>
@@ -368,13 +368,13 @@ const ChaptersSection = () => {
                 i >= 8 ? 'lg:col-span-2 max-w-xl mx-auto w-full' : ''
               }`}
             >
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="flex items-start justify-between mb-6">
-                  <span className="font-serif text-gold/30 text-4xl group-hover:text-gold transition-colors duration-500">{chapter.num}</span>
+              <div className="relative z-10 flex flex-col h-full items-center md:items-start text-center md:text-left">
+                <div className="flex items-start justify-between mb-6 w-full">
+                  <span className="font-serif text-gold/30 text-4xl group-hover:text-gold transition-colors duration-500 w-full md:w-auto">{chapter.num}</span>
                   <LotusGeometry className="w-8 h-8 text-gold/10 group-hover:text-gold/30 transition-all" />
                 </div>
                 
-                <div className="mb-6">
+                <div className="mb-6 w-full">
                   <h3 className="text-xl font-serif text-parchment leading-tight mb-3 min-h-[3rem]">{chapter.title}</h3>
                   <p className="text-gold/50 font-serif italic text-xs leading-snug line-clamp-2">"{chapter.verse}"</p>
                 </div>
@@ -388,7 +388,7 @@ const ChaptersSection = () => {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-gold/10">
+                <div className="mt-6 pt-4 border-t border-gold/10 w-full">
                   <div className="p-3 bg-maroon-dark/40 rounded-xl border border-white/5 shadow-inner">
                     <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold block mb-1">Key Takeaway</span>
                     <p className="text-parchment/90 font-medium text-xs leading-snug italic">
@@ -445,7 +445,7 @@ const BenefitsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 border border-maroon-dark/10 rounded-2xl"
+              className="p-8 border border-maroon-dark/10 rounded-2xl flex flex-col items-center md:items-start text-center md:text-left"
             >
               <div className="w-12 h-12 bg-maroon text-parchment rounded-full flex items-center justify-center mb-6">
                 {benefit.icon}
@@ -471,6 +471,7 @@ const PreviewSection = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="text-center md:text-left flex flex-col items-center md:items-start"
           >
             <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">Inside the Pages</span>
             <h2 className="text-4xl md:text-7xl font-serif mb-8 italic text-parchment">A Mental Operating System</h2>
@@ -479,7 +480,7 @@ const PreviewSection = () => {
               Each page is designed with Apple-level precision to ensure the knowledge 
               is not just read, but integrated.
             </p>
-            <ul className="space-y-6">
+            <ul className="space-y-6 text-left">
               {['Premium 120gsm Parchment Paper', 'Minimalist Vedic Illustrations', 'Step-by-Step Practice Guides', 'Luxury Hardcover Binding'].map((item) => (
                 <li key={item} className="flex items-center gap-4 text-parchment/80">
                   <div className="w-1.5 h-1.5 bg-gold rounded-full" />
@@ -549,7 +550,7 @@ const AuthorSection = () => {
               <div className="absolute inset-4 border border-gold/20 rounded-2xl pointer-events-none" />
             </motion.div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -565,7 +566,7 @@ const AuthorSection = () => {
               "I do not teach any religion; I bring out the best of philosophies to enhance the lives of those I touch. 
               The battlefield of Kurukshetra has not disappeared—it has only multiplied. It now exists within every individual navigating ambition and conscience."
             </p>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col md:flex-row items-center md:items-center gap-6">
               <div className="w-12 h-px bg-gold" />
               <span className="font-serif italic text-xl text-gold/80">Guided by the Wisdom of the Gita</span>
             </div>
@@ -609,9 +610,9 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 glass rounded-3xl"
+              className="p-8 glass rounded-3xl flex flex-col items-center md:items-start text-center md:text-left"
             >
-              <div className="flex gap-1 mb-6">
+              <div className="flex justify-center md:justify-start gap-1 mb-6">
                 {[...Array(review.stars)].map((_, i) => (
                   <Star key={i} size={14} className="fill-gold text-gold" />
                 ))}
