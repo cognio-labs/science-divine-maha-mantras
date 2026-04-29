@@ -545,7 +545,7 @@ In an age of information overload, anxiety and identity confusion, this book is 
                   alt={item.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark/90 via-maroon-dark/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-30 transition-opacity" />
                 
                 <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
                    <p className="text-gold text-[10px] uppercase tracking-widest mb-2 font-bold opacity-0 group-hover:opacity-100 transition-opacity">Read Full Review</p>
