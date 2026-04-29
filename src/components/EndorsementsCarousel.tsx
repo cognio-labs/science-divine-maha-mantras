@@ -13,8 +13,6 @@ type Endorsement = {
   heading: string;
   text: string;
   badge: string;
-  leftMetric: string;
-  rightMetric: string;
   services: string;
 };
 
@@ -25,8 +23,6 @@ const endorsements: Endorsement[] = [
     image: sudhanshuImage,
     heading: 'A Work of a Different Order',
     badge: 'Legacy',
-    leftMetric: 'Deep wisdom',
-    rightMetric: 'Practical living',
     services: 'Spiritual discipline, conscious action, self-awareness',
     text: `Anyone who has serious interest in India's intellectual and civilizational heritage will find this book Maha Mantras by Sakshi Shree as a work of a different order. It is not merely as one of the interpretations of Bhagwad Gita but distils it into a contemporary context through ten actionable, life-altering principles. From the courage of Svadharma to the equanimity of Samatva Yoga.`
   },
@@ -36,8 +32,6 @@ const endorsements: Endorsement[] = [
     image: anandImage,
     heading: 'A Remarkable, Revolutionary Work',
     badge: 'Insight',
-    leftMetric: 'Inner freedom',
-    rightMetric: 'Living wisdom',
     services: 'Direct transmission, modern context, deep contemplation',
     text: `"In Living the Gita, Guru Sakshi Shree carries forward a vibrant and genuine chain of spiritual transmission, having trained directly under the revered master Sadguru Sudarshanacharya. What sets him apart so strikingly today, is that he extends well past any inherited tradition. His philosophy rests in his remarkable fusion of deep inner realisation with active daily living, pointing toward total inner freedom paired with wholehearted involvement in the outer world."`
   },
@@ -47,8 +41,6 @@ const endorsements: Endorsement[] = [
     image: amishImage,
     heading: 'Wisdom Out of the Puja Room',
     badge: 'Impact',
-    leftMetric: 'Modern relevance',
-    rightMetric: 'Timeless truth',
     services: 'Accessible philosophy, actionable practice, grounded spirituality',
     text: `In this powerful and practical book, Guruji Sakshi Shree does something very rare: he brings the eternal wisdom of the Gita out of the puja room and plants it firmly in the messy battlefield of modern life. Each maha mantra is not a slogan to be memorized, but a tool for living - whether you are a student confused about your path, a householder juggling responsibilities, or a seeker struggling with inner turmoil.`
   },
@@ -58,8 +50,6 @@ const endorsements: Endorsement[] = [
     image: shamikaImage,
     heading: 'Timely and Inspiring Work',
     badge: 'Clarity',
-    leftMetric: 'Modern life',
-    rightMetric: 'Ancient wisdom',
     services: 'Human consciousness, inner mastery, purposeful living',
     text: `'Living the Gita in the Twenty-First Century' is a timely and inspiring work that brings the eternal wisdom of the Bhagavad Gita into the heart of modern life. Sakshi Shree presents the Gita not merely as scripture, but as a practical science of human consciousness, offering clarity in an age of stress, speed, and distraction.`
   }
@@ -74,7 +64,7 @@ export default function EndorsementsCarousel() {
     const timer = window.setInterval(() => {
       setDirection(1);
       setActiveIndex((current) => (current + 1) % endorsements.length);
-    }, 7000);
+    }, 4500);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -104,12 +94,12 @@ export default function EndorsementsCarousel() {
             <motion.article
               key={activeEndorsement.name}
               custom={direction}
-              initial={{ opacity: 0, x: direction > 0 ? 90 : -90, scale: 0.98 }}
+              initial={{ opacity: 0, x: direction > 0 ? 70 : -70, scale: 0.985 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: direction > 0 ? -90 : 90, scale: 0.98 }}
-              transition={{ duration: 0.55, ease: 'easeOut' }}
+              exit={{ opacity: 0, x: direction > 0 ? -70 : 70, scale: 0.985 }}
+              transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => setSelectedEndorsement(activeEndorsement)}
-              className="group relative cursor-pointer overflow-hidden rounded-[18px] md:rounded-[24px] border border-[#e9ecef] bg-[#fbfaf8] text-[#1f4b53] shadow-[0_22px_60px_rgba(0,0,0,0.20)] min-h-[520px] md:min-h-[500px]"
+              className="group relative cursor-pointer overflow-hidden rounded-[18px] md:rounded-[24px] border border-[#e9ecef] bg-[#fbfaf8] text-[#1f4b53] shadow-[0_22px_60px_rgba(0,0,0,0.20)] min-h-[460px] md:min-h-[440px]"
             >
               <div className="absolute top-0 right-0 w-8 h-8 rounded-full bg-[#eaf2f2] translate-x-1/2 -translate-y-1/2 opacity-90" />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(250,250,248,0.96))]" />
@@ -144,16 +134,6 @@ export default function EndorsementsCarousel() {
                     {activeEndorsement.text}
                   </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mt-8 md:mt-10">
-                    <div className="rounded-[14px] bg-[#eef4f4] px-5 py-5 md:px-6 md:py-6 text-center">
-                      <p className="text-xs text-[#89a9ad] mb-2">Key Result</p>
-                      <p className="text-[#3f968f] font-semibold text-base md:text-lg">{activeEndorsement.leftMetric}</p>
-                    </div>
-                    <div className="rounded-[14px] bg-[#eef4f4] px-5 py-5 md:px-6 md:py-6 text-center">
-                      <p className="text-xs text-[#89a9ad] mb-2">Impact</p>
-                      <p className="text-[#3f968f] font-semibold text-base md:text-lg">{activeEndorsement.rightMetric}</p>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="pt-5 border-t border-[#dce6e6]">
