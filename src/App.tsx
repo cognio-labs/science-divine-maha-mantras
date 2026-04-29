@@ -623,23 +623,23 @@ const FinalImpact = () => {
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Instagram size={18} />, url: 'https://www.instagram.com/sakshishreeofficial?igsh=MXY2dzN4MXU4MmYyMg==' },
-    { icon: <Youtube size={18} />, url: 'https://www.youtube.com/@sakshishree' },
-    { icon: <Facebook size={18} />, url: 'https://www.facebook.com/sakshishreeofficial/' }
+    { icon: <Instagram size={18} />, url: 'https://www.instagram.com/sakshishreeofficial?igsh=MXY2dzN4MXU4MmYyMg==', color: 'hover:text-[#E4405F] hover:border-[#E4405F]' },
+    { icon: <Youtube size={18} />, url: 'https://www.youtube.com/@sakshishree', color: 'hover:text-[#FF0000] hover:border-[#FF0000]' },
+    { icon: <Facebook size={18} />, url: 'https://www.facebook.com/sakshishreeofficial/', color: 'hover:text-[#1877F2] hover:border-[#1877F2]' }
   ];
 
   return (
-    <footer className="py-14 md:py-16 px-4 md:px-6 bg-maroon-dark border-t border-white/5">
+    <footer className="py-14 md:py-16 px-4 md:px-6 bg-white border-t border-maroon-dark/5">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10 mb-10 md:mb-12">
           <div className="flex items-center gap-3">
             <DharmaChakra className="w-8 h-8 text-gold" />
-            <span className="font-serif text-xl tracking-widest uppercase text-parchment">Maha Mantras</span>
+            <span className="font-serif text-xl tracking-widest uppercase text-maroon-dark">Maha Mantras</span>
           </div>
           
           <div className="flex gap-8 md:gap-10">
             {['Privacy', 'Terms', 'Shipping', 'Contact'].map((item) => (
-              <a key={item} href="#" className="text-sm uppercase tracking-wider text-parchment/50 hover:text-gold transition-colors">
+              <a key={item} href="#" className="text-sm uppercase tracking-wider text-maroon-dark/50 hover:text-gold transition-colors">
                 {item}
               </a>
             ))}
@@ -652,7 +652,7 @@ const Footer = () => {
                 href={link.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-parchment/60 hover:border-gold hover:text-gold transition-all"
+                className={`w-10 h-10 rounded-full border border-maroon-dark/10 flex items-center justify-center text-maroon-dark/60 transition-all ${link.color}`}
               >
                 {link.icon}
               </a>
@@ -661,7 +661,7 @@ const Footer = () => {
         </div>
         
         <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.25em] text-parchment/30">
+          <p className="text-sm uppercase tracking-[0.25em] text-maroon-dark/30">
             © 2026 Maha Mantras Publishing. All Rights Reserved.
           </p>
         </div>
