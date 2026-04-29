@@ -547,11 +547,11 @@ In an age of information overload, anxiety and identity confusion, this book is 
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-6">
                   {/* Circular Image - Positioned as per reference image variations */}
-                  <div className={`w-24 h-24 rounded-full border-2 border-gold/30 p-1.5 group-hover:border-gold transition-colors overflow-hidden ${idx % 2 === 0 ? 'order-1' : 'order-2'}`}>
+                  <div className={`w-24 h-24 rounded-full border-2 border-gold/30 bg-maroon-dark p-1.5 group-hover:border-gold transition-colors overflow-hidden ${idx % 2 === 0 ? 'order-1' : 'order-2'}`}>
                     <img 
                       src={item.image} 
                       alt={item.name} 
-                      className="w-full h-full object-cover rounded-full"
+                      className="w-full h-full object-cover rounded-full mix-blend-multiply"
                     />
                   </div>
                   
