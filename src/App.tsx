@@ -39,7 +39,6 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
     { name: 'The Book', href: '#book' },
     { name: 'Chapters', href: '#chapters' },
     { name: 'Benefits', href: '#benefits' },
-    { name: 'Preview', href: '#preview' },
     { name: 'Author', href: '#author' },
   ];
 
@@ -459,6 +458,12 @@ const AuthorSection = () => {
               "I do not teach any religion; I bring out the best of philosophies to enhance the lives of those I touch. 
               The battlefield of Kurukshetra has not disappeared—it has only multiplied. It now exists within every individual navigating ambition and conscience."
             </p>
+            <button 
+              onClick={() => document.getElementById('preorder')?.scrollIntoView({ behavior: 'smooth' })}
+              className="mb-10 px-10 py-4 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full hover:scale-105 transition-transform"
+            >
+              Reserve Your Copy
+            </button>
             <div className="flex flex-col md:flex-row items-center md:items-center gap-6">
               <div className="w-12 h-px bg-gold" />
               <span className="font-serif italic text-xl text-gold/80">Guided by the Wisdom of the Gita</span>
@@ -547,7 +552,7 @@ const PreOrderSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
   }, []);
 
   return (
-    <section className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden">
+    <section id="preorder" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden">
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <LotusGeometry className="absolute -top-20 -right-20 w-[600px] h-[600px] text-gold" />
       </div>
