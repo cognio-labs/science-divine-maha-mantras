@@ -201,7 +201,7 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
 
 const AuthorSection = () => {
   return (
-    <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark text-parchment relative overflow-hidden">
+    <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark text-parchment relative overflow-hidden border-t border-gold/5">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
         <div className="w-full md:w-5/12">
             <motion.div
