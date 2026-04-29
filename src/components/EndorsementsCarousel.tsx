@@ -93,15 +93,14 @@ export default function EndorsementsCarousel() {
               exit={{ opacity: 0, x: direction > 0 ? -60 : 60, scale: 0.99 }}
               transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => setSelectedEndorsement(activeEndorsement)}
-              className="group relative cursor-pointer overflow-hidden rounded-[34px] md:rounded-[42px] border border-[#dfe8ea] bg-[#fbfbf9] text-[#1f4b53] shadow-[0_26px_70px_rgba(0,0,0,0.18)] min-h-[470px] md:min-h-[480px]"
+              className="group relative cursor-pointer overflow-hidden rounded-[34px] md:rounded-[42px] border-[4px] border-[#4aa5b8] bg-[#fbfbf9] text-[#1f4b53] shadow-[0_26px_70px_rgba(0,0,0,0.18)] min-h-[470px] md:min-h-[500px]"
             >
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,249,247,0.95))]" />
-              <div className="absolute top-0 right-0 w-7 h-7 rounded-full bg-[#edf4f4] translate-x-1/2 -translate-y-1/2" />
 
-              <div className="relative z-10 h-full p-6 md:p-8 lg:p-10 flex flex-col justify-between">
+              <div className="relative z-10 h-full px-5 md:px-8 pt-7 md:pt-8 pb-6 md:pb-7 flex flex-col justify-between">
                 <div className="flex items-start justify-between gap-4 md:gap-6">
                   <div className="flex items-start gap-3 md:gap-4">
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-[4px] border-[#57b4ab] shadow-[0_10px_20px_rgba(0,0,0,0.10)] shrink-0 bg-white">
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-[4px] border-[#57b4ab] shadow-[0_10px_20px_rgba(0,0,0,0.10)] shrink-0 bg-white -mt-3 md:-mt-4">
                       <img
                         src={activeEndorsement.image}
                         alt={activeEndorsement.name}
@@ -123,18 +122,18 @@ export default function EndorsementsCarousel() {
                   </span>
                 </div>
 
-                <div className="py-8 md:py-10">
-                  <div className="flex justify-end mb-4 md:mb-6 pr-1 md:pr-2">
-                    <Quote size={40} className="text-[#d3e8ea]" strokeWidth={1.6} />
+                <div className="relative py-8 md:py-12">
+                  <div className="absolute right-0 top-4 md:top-6">
+                    <Quote size={44} className="text-[#d3e8ea]" strokeWidth={1.6} />
                   </div>
 
-                  <p className="text-center text-[#224f58] italic text-[16px] md:text-[19px] leading-[1.58] md:leading-[1.62] max-w-4xl mx-auto px-1 md:px-10">
+                  <p className="text-center text-[#224f58] italic text-[16px] md:text-[19px] leading-[1.68] md:leading-[1.72] max-w-4xl mx-auto px-1 md:px-12 pt-8 md:pt-6">
                     {activeEndorsement.text}
                   </p>
                 </div>
 
-                <div className="pt-5 border-t border-[#dce6e6]">
-                  <p className="text-[11px] text-[#6f8f93] uppercase tracking-[0.18em] text-center mb-3">
+                <div className="pt-6 border-t border-[#dce6e6]">
+                  <p className="text-[11px] text-[#6f8f93] uppercase tracking-[0.22em] text-center mb-3">
                     Full Testimonial
                   </p>
                   <p className="text-center text-[#204b54] text-sm md:text-base font-medium">
@@ -147,7 +146,7 @@ export default function EndorsementsCarousel() {
                     e.stopPropagation();
                     setSelectedEndorsement(activeEndorsement);
                   }}
-                  className="absolute right-5 md:right-7 top-18 md:top-20 text-[#58aea7] text-xs font-semibold uppercase tracking-[0.18em]"
+                  className="absolute right-5 md:right-7 top-16 md:top-20 text-[#58aea7] text-xs font-semibold uppercase tracking-[0.18em]"
                 >
                   Read More →
                 </button>
