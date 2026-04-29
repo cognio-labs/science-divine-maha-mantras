@@ -162,7 +162,7 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
               onClick={() => document.getElementById('chapters')?.scrollIntoView({ behavior: 'smooth' })}
               className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full hover:bg-white/5 active:scale-95"
             >
-              Read Sample
+              Register for event
             </button>
           </div>
         </motion.div>
@@ -875,8 +875,8 @@ export default function App() {
     <div className="bg-maroon-dark text-parchment selection:bg-gold/30">
       <Navbar onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
       <Hero onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
-      <AuthoritySection />
       <AuthorSection />
+      <AuthoritySection />
       <ChaptersSection />
       <BenefitsSection />
       <PreviewSection />
