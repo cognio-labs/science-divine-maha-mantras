@@ -143,12 +143,12 @@ const HeroSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
             transition={{ duration: 1 }}
             className="text-left order-2 lg:order-1 flex flex-col items-start"
           >
-            <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Sacred Discipline</span>
+            <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Enlightened Master</span>
             <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-tight md:leading-[0.9] text-parchment">
-              Maha <span className="text-gold-gradient italic">Mantras</span>
+              Sakshi <span className="text-gold-gradient italic">Shree</span>
             </h1>
             <p className="text-xl md:text-2xl text-parchment/60 font-light tracking-wide mb-12 max-w-lg">
-              A structural blueprint for your consciousness. Discipline your mind. Awaken inner power.
+              Bridging ancient Himalayan wisdom with the modern world. A guide to inner awakening and consciousness.
             </p>
             
             <div className="flex flex-col sm:flex-row items-start gap-6">
@@ -156,13 +156,7 @@ const HeroSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
                 onClick={() => document.getElementById('preorder')?.scrollIntoView({ behavior: 'smooth' })}
                 className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10 hover:scale-105 active:scale-95"
               >
-                Pre-Order Now
-              </button>
-              <button 
-                onClick={() => document.getElementById('chapters')?.scrollIntoView({ behavior: 'smooth' })}
-                className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full hover:bg-white/5 active:scale-95"
-              >
-                Register for event
+                Pre-Order the Book
               </button>
             </div>
           </motion.div>
