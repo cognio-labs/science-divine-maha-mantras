@@ -167,15 +167,12 @@ const HeroSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
             </div>
           </motion.div>
 
-          {/* Right Content: Book & Mandala */}
+          {/* Right Content: Author Portrait & Mandala */}
           <div className="relative order-1 lg:order-2 flex justify-center lg:justify-center">
             <motion.div 
               style={{ y: y1, rotate }}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] opacity-15 pointer-events-none flex items-center justify-center"
             >
-              <div className="absolute w-1/3 h-1/3 rounded-full overflow-hidden blur-sm">
-                <img src={authorImage} alt="" className="w-full h-full object-cover grayscale mix-blend-screen" />
-              </div>
               <MandalaGrid className="w-full h-full text-gold" />
             </motion.div>
 
@@ -187,59 +184,10 @@ const HeroSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
             >
               <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full" />
               <img 
-                src={bookCover} 
-                alt="Maha Mantras Book Cover" 
-                className="relative w-full h-auto shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm"
+                src={authorPortrait} 
+                alt="Sakshi Shree" 
+                className="relative w-full h-auto shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-3xl"
               />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Integrated Author Area */}
-      <section id="author" className="py-20 md:py-32 px-4 md:px-6 text-parchment relative overflow-hidden border-t border-gold/5">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
-          <div className="w-full md:w-5/12">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="aspect-[4/5] rounded-3xl overflow-hidden relative group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark via-transparent to-transparent z-10" />
-                <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <img 
-                  src={authorPortrait} 
-                  alt="Sakshi Shree" 
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute inset-4 border border-gold/20 rounded-2xl pointer-events-none" />
-              </motion.div>
-          </div>
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Enlightened Master</span>
-              <h2 className="text-4xl md:text-7xl font-serif mb-8 text-parchment">Sakshi Shree</h2>
-              <p className="text-xl text-parchment/70 font-light leading-relaxed mb-8">
-                Born Rām Krishna Upādhyāya, Sakshi Shree is a rare triad: an enlightened master, a householder, and a former civil servant. 
-                Mentored by Swami Sudarshanacharya Ji Maharaj, he bridges the gap between ancient Himalayan wisdom and the modern boardroom.
-              </p>
-              <p className="text-lg text-parchment/60 font-light leading-relaxed mb-12 italic border-l-4 border-gold/30 pl-8">
-                "I do not teach any religion; I bring out the best of philosophies to enhance the lives of those I touch. 
-                The battlefield of Kurukshetra has not disappeared—it has only multiplied. It now exists within every individual navigating ambition and conscience."
-              </p>
-              <button 
-                onClick={() => document.getElementById('preorder')?.scrollIntoView({ behavior: 'smooth' })}
-                className="mb-12 px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all shadow-xl shadow-gold/10"
-              >
-                Reserve Your Copy Now
-              </button>
-              <div className="flex flex-col md:flex-row items-center md:items-center gap-6">
-  
             </motion.div>
           </div>
         </div>
@@ -247,6 +195,45 @@ const HeroSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
     </div>
   );
 };
+
+const AuthorSection = () => {
+  return (
+    <section id="author" className="py-20 md:py-32 px-4 md:px-6 text-parchment bg-maroon-dark relative overflow-hidden border-t border-gold/5">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
+        <div className="w-full md:w-5/12">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="aspect-[4/5] rounded-3xl overflow-hidden relative group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark via-transparent to-transparent z-10" />
+              <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <img 
+                src={authorPortrait} 
+                alt="Sakshi Shree" 
+                className="w-full h-full object-cover object-top"
+              />
+              <div className="absolute inset-4 border border-gold/20 rounded-2xl pointer-events-none" />
+            </motion.div>
+        </div>
+        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Enlightened Master</span>
+            <h2 className="text-4xl md:text-7xl font-serif mb-8 text-parchment">Sakshi Shree</h2>
+            <p className="text-xl text-parchment/70 font-light leading-relaxed mb-8">
+              Born Rām Krishna Upādhyāya, Sakshi Shree is a rare triad: an enlightened master, a householder, and a former civil servant. 
+              Mentored by Swami Sudarshanacharya Ji Maharaj, he bridges the gap between ancient Himalayan wisdom and the modern boardroom.
+            </p>
+            <p className="text-lg text-parchment/60 font-light leading-relaxed mb-12 italic border-l-4 border-gold/30 pl-8">
+              "I do not teach any religion; I bring out the best of philosophies to enhance the lives of those I touch. 
+              The battlefield of Kurukshetra has not disappeared—it has only multiplied. It now exists within every individual navigating ambition and conscience."
+            </p>
+            <div className="flex flex-col md:flex-row items-center md:items-center gap-6">
               <div className="w-12 h-px bg-gold" />
               <span className="font-serif italic text-xl text-gold/80">Guided by the Wisdom of the Gita</span>
             </div>
@@ -552,16 +539,15 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 // --- Main App ---
 
 export default function App() {
+  const openPreOrder = () => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank');
+  
   return (
     <div className="bg-maroon-dark text-parchment selection:bg-gold/30">
-      <Navbar onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
-      <Hero onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
+      <Navbar onOpenModal={openPreOrder} />
+      <HeroSection onOpenModal={openPreOrder} />
       <AuthorSection />
-      <AuthoritySection />
-      <ChaptersSection />
-      <BenefitsSection />
       <Testimonials />
-      <PreOrderSection onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
+      <PreOrderSection onOpenModal={openPreOrder} />
       <FinalImpact />
       <Footer />
     </div>
