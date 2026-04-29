@@ -18,11 +18,20 @@ type Endorsement = {
 const endorsements: Endorsement[] = [
   {
     name: 'Sudhanshu Trivedi',
-    title: 'Member of Parliament (Rajya Sabha) & National Spokesperson, BJP',
+    title: 'Member of Parliament (Rajya Sabha) and National Spokesperson, Bharatiya Janata Party (BJP)',
     image: sudhanshuImage,
     heading: 'A Work of a Different Order',
     badge: 'Legacy',
-    text: `Anyone who has serious interest in India's intellectual and civilizational heritage will find this book Maha Mantras by Sakshi Shree as a work of a different order. It is not merely as one of the interpretations of Bhagwad Gita but distils it into a contemporary context through ten actionable, life-altering principles. From the courage of Svadharma to the equanimity of Samatva Yoga.`
+    text: `Anyone who has serious interest in India's intellectual and civilizational heritage will find this book Maha Mantras by Sakshi Shree as a work of a different order. It is not merely as one of the interpretations of Bhagwad Gita but distils it into a contemporary context through ten actionable, life-altering principles. From the courage of Svadharma to the equanimity of Samatva Yoga.
+
+The book put forth the pragmatic path to unfolding Shrimad Bhagwad Gita's subtle substance: live consciously, act without attachment, and awaken to who you already are. In the final chapter where Sakshi Shree suggests Sakshi Sadhna, a fivefold meditative system that can be followed in the chaotic hustle and bustle of modern life Srimad Bhagwad Gita is a unique guide which shows the entire mankind how to be actively performing your duties in the world without getting attracted to it, which is called Drishta Bhav or Sakshi Bhav.
+
+I hope that the readers will find the visualisation of this eternal enlightenment of Srimad Bhagwad Gita's Sakshi Bhav with a pragmatic meditative manifestation required in rapidly changing and spiritually depleting modern society.
+
+Dr. Sudhanshu Trivedi
+Member of Parliament (Rajya Sabha)
+National Spokesperson,
+Bharatiya Janata Party (BJP)`
   },
   {
     name: 'Anand Ranganathan',
@@ -30,23 +39,33 @@ const endorsements: Endorsement[] = [
     image: anandImage,
     heading: 'A Remarkable, Revolutionary Work',
     badge: 'Insight',
-    text: `"In Living the Gita, Guru Sakshi Shree carries forward a vibrant and genuine chain of spiritual transmission, having trained directly under the revered master Sadguru Sudarshanacharya. What sets him apart so strikingly today, is that he extends well past any inherited tradition. His philosophy rests in his remarkable fusion of deep inner realisation with active daily living, pointing toward total inner freedom paired with wholehearted involvement in the outer world."`
+    text: `In Living the Gita, Guru Sakshi Shree carries forward a vibrant and genuine chain of spiritual transmission, having trained directly under the revered master Sadguru Sudarshanacharya. What sets him apart so strikingly today, is that he extends well past any inherited tradition. His philosophy rests in his remarkable fusion of deep inner realisation with active daily living, pointing toward total inner freedom paired with wholehearted involvement in the outer world. This principle mirrors the Gita's core guidance, not as distant theory, but as a way of being he has personally embodied. A remarkable, revolutionary work.
+
+- Anand Ranganathan, Scientist and Author`
   },
   {
     name: 'Amish Tripathi',
-    title: 'Bestselling Author and Former Diplomat',
+    title: 'Bestselling Author, Award-Winning Broadcaster and Former Diplomat',
     image: amishImage,
     heading: 'Wisdom Out of the Puja Room',
     badge: 'Impact',
-    text: `In this powerful and practical book, Guruji Sakshi Shree does something very rare: he brings the eternal wisdom of the Gita out of the puja room and plants it firmly in the messy battlefield of modern life. Each maha mantra is not a slogan to be memorized, but a tool for living - whether you are a student confused about your path, a householder juggling responsibilities, or a seeker struggling with inner turmoil.`
+    text: `In this powerful and practical book, Guruji Sakshi Shree does something very rare: he brings the eternal wisdom of the Gita out of the puja room and plants it firmly in the messy battlefield of modern life. Each maha mantra is not a slogan to be memorized, but a tool for living - whether you are a student confused about your path, a householder juggling responsibilities, or a seeker struggling with inner turmoil.
+
+Especially compelling to me was Guruji Sakshi Shree's peerless ability to unpack profound ideas like svadharma, nishkama karma, surrender and gunatita consciousness with the clarity of a modern teacher and the depth of an ancient rishi. He refuses both shallow ritualism and dry intellectualism, and instead shows how the Gita can become a living science of inner transformation - accessible to all, irrespective of religion, background or profession. The ten maha mantras do not ask you to escape the world; they teach you how to stand differently within it: rooted in your own being, yet fully engaged with life.
+
+In an age of information overload, anxiety and identity confusion, this book is a calm voice of dharma cutting through the noise. It reminds us that true spirituality is not about escaping to caves, but discovering stillness in the middle of our personal Kurukshetra. Read this book slowly, reflect on it deeply, and most importantly, practise even a little of what it suggests. Your outer life may remain the same - but your inner experience of it will become infinitely more powerful.
+- Amish is a bestselling author, award-winning broadcaster and former diplomat.`
   },
   {
     name: 'Shamika Ravi',
-    title: 'Senior Economist & Member of EAC-PM',
+    title: 'Senior Economist and Member of the Economic Advisory Council to the Prime Minister of India',
     image: shamikaImage,
     heading: 'Timely and Inspiring Work',
     badge: 'Clarity',
-    text: `'Living the Gita in the Twenty-First Century' is a timely and inspiring work that brings the eternal wisdom of the Bhagavad Gita into the heart of modern life. Sakshi Shree presents the Gita not merely as scripture, but as a practical science of human consciousness, offering clarity in an age of stress, speed, and distraction.`
+    text: `'Living the Gita in the Twenty-First Century' is a timely and inspiring work that brings the eternal wisdom of the Bhagavad Gita into the heart of modern life. Sakshi Shree presents the Gita not merely as scripture, but as a practical science of human consciousness, offering clarity in an age of stress, speed, and distraction. Through the ten Maha Mantras, he makes profound ideas such as Swadharma, Nishkama Karma, surrender, meditation, and awareness accessible to today's reader. Deeply spiritual yet refreshingly practical, this book is a powerful guide to inner mastery, purposeful living, and conscious transformation.
+
+Dr Shamika Ravi
+Senior Economist and Member of the Economic Advisory Council to the Prime Minister of India`
   }
 ];
 
