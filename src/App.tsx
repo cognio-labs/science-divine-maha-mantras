@@ -528,7 +528,7 @@ In an age of information overload, anxiety and identity confusion, this book is 
           <h2 className="text-4xl md:text-7xl font-serif text-parchment leading-tight">Voice of <span className="text-gold italic">Authority</span></h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {endorsements.map((item, idx) => (
             <motion.div
               key={item.name}
@@ -537,7 +537,7 @@ In an age of information overload, anxiety and identity confusion, this book is 
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               onClick={() => setSelectedEndorsement(item)}
-              className="group cursor-pointer bg-black/40 backdrop-blur-sm border border-gold/10 p-8 md:p-10 rounded-[2.5rem] hover:border-gold/30 transition-all duration-500 relative flex flex-col justify-between min-h-[320px] shadow-2xl"
+              className="group cursor-pointer bg-black/40 backdrop-blur-sm border border-gold/10 p-6 md:p-8 rounded-[2.25rem] hover:border-gold/30 transition-all duration-500 relative flex flex-col justify-between min-h-[280px] shadow-2xl"
             >
               {/* Quote Icon */}
               <div className="absolute top-8 left-8 text-gold/20 text-7xl font-serif leading-none select-none group-hover:text-gold/40 transition-colors">
@@ -545,9 +545,9 @@ In an age of information overload, anxiety and identity confusion, this book is 
               </div>
 
               <div className="relative z-10">
-                <div className="flex items-start justify-between mb-8">
+                <div className="flex items-start justify-between mb-6">
                   {/* Circular Image - Positioned as per reference image variations */}
-                  <div className={`w-20 h-20 rounded-full border-2 border-gold/30 p-1 group-hover:border-gold transition-colors overflow-hidden ${idx % 2 === 0 ? 'order-1' : 'order-2'}`}>
+                  <div className={`w-24 h-24 rounded-full border-2 border-gold/30 p-1.5 group-hover:border-gold transition-colors overflow-hidden ${idx % 2 === 0 ? 'order-1' : 'order-2'}`}>
                     <img 
                       src={item.image} 
                       alt={item.name} 
@@ -556,12 +556,12 @@ In an age of information overload, anxiety and identity confusion, this book is 
                   </div>
                   
                   <div className={`flex flex-col ${idx % 2 === 0 ? 'order-2 text-right' : 'order-1 text-left'}`}>
-                    <h3 className="text-parchment font-serif text-2xl mb-1">{item.name}</h3>
+                    <h3 className="text-parchment font-serif text-xl md:text-2xl mb-1">{item.name}</h3>
                     <p className="text-gold/60 text-xs uppercase tracking-widest font-bold">{item.heading}</p>
                   </div>
                 </div>
 
-                <p className="text-parchment/70 text-lg font-light leading-relaxed mb-8 italic line-clamp-4">
+                <p className="text-parchment/70 text-base md:text-lg font-light leading-relaxed mb-6 italic line-clamp-4">
                   {item.text}
                 </p>
               </div>
