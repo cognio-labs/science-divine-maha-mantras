@@ -528,36 +528,47 @@ In an age of information overload, anxiety and identity confusion, this book is 
           <h2 className="text-4xl md:text-7xl font-serif text-parchment leading-tight">Voice of <span className="text-gold italic">Authority</span></h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {endorsements.map((item, idx) => (
             <motion.div
               key={item.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               onClick={() => setSelectedEndorsement(item)}
-              className="group cursor-pointer"
+              className="group cursor-pointer bg-black/40 backdrop-blur-sm border border-gold/10 p-8 md:p-10 rounded-[2.5rem] hover:border-gold/30 transition-all duration-500 relative flex flex-col justify-between min-h-[320px] shadow-2xl"
             >
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-6 border border-gold/10 group-hover:border-gold/40 transition-all duration-500 shadow-2xl">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 group-hover:opacity-30 transition-opacity" />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                   <p className="text-gold text-[10px] uppercase tracking-widest mb-2 font-bold opacity-0 group-hover:opacity-100 transition-opacity">Read Full Review</p>
-                   <h3 className="text-parchment font-serif text-xl leading-tight mb-1">{item.name}</h3>
-                   <p className="text-parchment/60 text-[11px] uppercase tracking-wider line-clamp-1">{item.title}</p>
-                </div>
+              {/* Quote Icon */}
+              <div className="absolute top-8 left-8 text-gold/20 text-7xl font-serif leading-none select-none group-hover:text-gold/40 transition-colors">
+                “
               </div>
-              <div className="text-center md:text-left">
-                <h4 className="text-gold font-serif italic text-lg mb-2">"{item.heading}"</h4>
-                <p className="text-parchment/50 text-sm line-clamp-3 font-light leading-relaxed">
+
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-8">
+                  {/* Circular Image - Positioned as per reference image variations */}
+                  <div className={`w-20 h-20 rounded-full border-2 border-gold/30 p-1 group-hover:border-gold transition-colors overflow-hidden ${idx % 2 === 0 ? 'order-1' : 'order-2'}`}>
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  </div>
+                  
+                  <div className={`flex flex-col ${idx % 2 === 0 ? 'order-2 text-right' : 'order-1 text-left'}`}>
+                    <h3 className="text-parchment font-serif text-2xl mb-1">{item.name}</h3>
+                    <p className="text-gold/60 text-xs uppercase tracking-widest font-bold">{item.heading}</p>
+                  </div>
+                </div>
+
+                <p className="text-parchment/70 text-lg font-light leading-relaxed mb-8 italic line-clamp-4">
                   {item.text}
                 </p>
+              </div>
+
+              <div className="flex items-center justify-between pt-6 border-t border-gold/5">
+                <span className="text-parchment/40 text-[10px] uppercase tracking-[0.3em] font-medium">Full Testimonial</span>
+                <p className="text-gold text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Read More →</p>
               </div>
             </motion.div>
           ))}
