@@ -126,345 +126,129 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
   );
 };
 
-const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
+const HeroSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 100]);
   const rotate = useTransform(scrollY, [0, 500], [0, 15]);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden sacred-grid bg-maroon-dark">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10 py-16 md:py-20">
-        
-        {/* Left Content: Text */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          className="text-left order-2 lg:order-1 flex flex-col items-start"
-        >
-          <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Sacred Discipline</span>
-          <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-tight md:leading-[0.9] text-parchment">
-            Maha <span className="text-gold-gradient italic">Mantras</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-parchment/60 font-light tracking-wide mb-12 max-w-lg">
-            A structural blueprint for your consciousness. Discipline your mind. Awaken inner power.
-          </p>
+    <div className="bg-maroon-dark">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden sacred-grid">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10 py-16 md:py-20">
           
-          <div className="flex flex-col sm:flex-row items-start gap-6">
-            <button 
-              onClick={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')}
-              className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10 hover:scale-105 active:scale-95"
-            >
-              Pre-Order Now
-            </button>
-            <button 
-              onClick={() => document.getElementById('chapters')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full hover:bg-white/5 active:scale-95"
-            >
-              Register for event
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Right Content: Book & Mandala */}
-        <div className="relative order-1 lg:order-2 flex justify-center lg:justify-center">
-          {/* Mandala - Now localized behind the book */}
-          <motion.div 
-            style={{ y: y1, rotate }}
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] opacity-15 pointer-events-none flex items-center justify-center"
+          {/* Left Content: Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="text-left order-2 lg:order-1 flex flex-col items-start"
           >
-            <div className="absolute w-1/3 h-1/3 rounded-full overflow-hidden blur-sm">
-              <img src={authorImage} alt="" className="w-full h-full object-cover grayscale mix-blend-screen" />
+            <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Sacred Discipline</span>
+            <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-tight md:leading-[0.9] text-parchment">
+              Maha <span className="text-gold-gradient italic">Mantras</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-parchment/60 font-light tracking-wide mb-12 max-w-lg">
+              A structural blueprint for your consciousness. Discipline your mind. Awaken inner power.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-start gap-6">
+              <button 
+                onClick={() => document.getElementById('preorder')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10 hover:scale-105 active:scale-95"
+              >
+                Pre-Order Now
+              </button>
+              <button 
+                onClick={() => document.getElementById('chapters')?.scrollIntoView({ behavior: 'smooth' })}
+                className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full hover:bg-white/5 active:scale-95"
+              >
+                Register for event
+              </button>
             </div>
-            <MandalaGrid className="w-full h-full text-gold" />
           </motion.div>
 
-          {/* Book Mockup - Replaced with actual image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            className="relative w-64 h-auto md:w-96"
-          >
-            <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full" />
-            <img 
-              src={bookCover} 
-              alt="Maha Mantras Book Cover" 
-              className="relative w-full h-auto shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm"
-            />
-          </motion.div>
-        </div>
-      </div>
-
-    </section>
-  );
-};
-
-const AuthoritySection = () => {
-  return (
-    <section id="book" className="py-20 md:py-24 px-4 md:px-6 bg-white relative overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <LotusGeometry className="w-16 h-16 text-gold-muted/30 mx-auto mb-12" />
-          <h2 className="text-3xl md:text-6xl font-serif mb-12 leading-tight text-maroon-dark">
-            The world is loud. <br />
-            <span className="text-gold-muted italic">Your mind doesn't have to be.</span>
-          </h2>
-          <div className="space-y-8 text-lg md:text-xl text-maroon-dark/60 font-light leading-relaxed max-w-2xl mx-auto">
-            <p className="italic text-gold-muted mb-8">
-              "Who am I beyond my roles? What am I truly here for? Is there a way to live without anxiety, without conflict?"
-            </p>
-            <p>
-              In an era of infinite distraction, the greatest luxury is a focused mind. 
-              Most people live in a state of mental fragmentation, pulled by every notification and impulse.
-            </p>
-            <p>
-              <span className="text-maroon-dark font-medium">Maha Mantras</span> is not just a book of chants. 
-              It is a structural blueprint for your consciousness. It uses the ancient science of sound 
-              to build an inner fortress that no external chaos can penetrate.
-            </p>
-          </div>
-          <div className="mt-10 md:mt-12 flex justify-center">
-            <div className="w-24 h-px bg-gold-muted/40" />
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const ChaptersSection = () => {
-  const chapters = [
-    {
-      num: "01",
-      title: "Find and Live Your Svadharma",
-      verse: "shreyan svadharmo vigunah paradharmat sv-anushthitat...",
-      desc: "Why do so many successful people still feel empty inside? This chapter reveals how to find the path that is truly yours—and why living anyone else’s truth becomes the root of anxiety.",
-    },
-    {
-      num: "02",
-      title: "Acting Without Attachment — Living Nishkama Karma Yoga",
-      verse: "karmany evadhikaras te ma phaleshu kadachana...",
-      desc: "What if your best work begins only when you stop obsessing over the result? This chapter shows how to act with total intensity, yet remain free from fear, craving and disappointment.",
-    },
-    {
-      num: "03",
-      title: "Step Beyond Karma, Gyana and Bhakti",
-      verse: "traigunya-vishaya veda nistraigunyo bhava Arjuna...",
-      desc: "Can action, knowledge and devotion themselves become traps? This chapter uncovers why every spiritual path needs meditation—and how awareness carries you beyond the mind.",
-    },
-    {
-      num: "04",
-      title: "Beyond Form and Formless Worship",
-      verse: "evam satata-yukta ye bhaktas tvam paryupasate...",
-      desc: "Is God found in an idol, in silence, or somewhere beyond both? This chapter shows how form becomes a bridge to the formless—and how true worship awakens the witness within.",
-    },
-    {
-      num: "05",
-      title: "Beyond the Three Gunas — Entering the Fourth Dimension of Consciousness",
-      verse: "gunan etan atitya trin dehi deha samudbhavan...",
-      desc: "Are your moods, choices and struggles really yours—or are they the play of Sattva, Rajas and Tamas? This chapter reveals the fourth state beyond all conditioning: Gunatita.",
-    },
-    {
-      num: "06",
-      title: "Surrender — The Master Key to Self-Realization",
-      verse: "sarva-dharman parityajya mam ekam sharanam vraja...",
-      desc: "What happens when you stop resisting life? This chapter explores surrender not as weakness, but as the master key that turns karma into leela—life as divine play.",
-    },
-    {
-      num: "07",
-      title: "Breaking Free from the Identity Trap",
-      verse: "kshetrajnam cha api mam viddhi sarva kshetreshu Bharata...",
-      desc: "Who are you when you are not your body, your thoughts, your emotions or your story? This chapter reveals the difference between the field of experience and the silent knower within.",
-    },
-    {
-      num: "08",
-      title: "Freedom from Rituals — The Essence Is Everything",
-      verse: "vedeshu yajneshu tapahsu chaiva daneshu yat...",
-      desc: "When does a sacred ritual become an empty habit? This chapter cuts through mechanical spirituality and shows how every act can become a living yajna when awareness is present.",
-    },
-    {
-      num: "09",
-      title: "Fourfold Path — The Supreme Science of Living",
-      verse: "kayena manasa buddhya kevalair indriyair api...",
-      desc: "Is there a science to living well across every stage of life? This chapter reimagines the four ashramas as a modern blueprint for discipline, contribution, simplification and freedom.",
-    },
-    {
-      num: "10",
-      title: "Samatva Yoga — Stay Anchored in Your Own Being",
-      verse: "sukha-duhkhe same kritva labhalabhau jayajayau...",
-      desc: "How do you stay steady when life moves between praise and blame, gain and loss, friend and foe? This chapter reveals Samatva—the inner balance that turns life itself into yoga.",
-    },
-    {
-      num: "11",
-      title: "The Science of Living the Gita",
-      verse: "",
-      desc: "How do you actually live the Gita after understanding it? This final chapter gives the practical system of Sakshi Sadhana—five tools that turn the maha mantras from wisdom into daily experience.",
-    }
-  ];
-
-  return (
-    <section id="chapters" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden border-y border-gold/10">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 md:mb-20 gap-8 text-center md:text-left">
-          <div className="max-w-2xl flex flex-col items-center md:items-start">
-            <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Sacred Journey</span>
-            <h2 className="text-4xl md:text-8xl font-serif leading-tight md:leading-none text-parchment">The Eleven Chapters</h2>
-          </div>
-          <p className="text-parchment/40 uppercase tracking-widest text-xs font-medium pb-4">
-            Extracted from 364 Pages of Wisdom
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8">
-          {chapters.map((chapter, i) => (
-            <motion.div
-              key={chapter.num}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className={`relative bg-gradient-to-br from-white/[0.03] to-transparent p-6 md:p-8 rounded-[2rem] border border-gold/10 hover:border-gold/30 transition-all duration-500 group flex flex-col h-full ${
-                i >= 8 ? 'lg:col-span-4 md:col-span-2' : 'lg:col-span-3 md:col-span-1'
-              }`}
+          {/* Right Content: Book & Mandala */}
+          <div className="relative order-1 lg:order-2 flex justify-center lg:justify-center">
+            <motion.div 
+              style={{ y: y1, rotate }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] opacity-15 pointer-events-none flex items-center justify-center"
             >
-              <div className="relative z-10 flex flex-col h-full items-center md:items-start text-center md:text-left">
-                <div className="flex items-start justify-between mb-6 w-full">
-                  <span className="font-serif text-gold/30 text-4xl group-hover:text-gold transition-colors duration-500 w-full md:w-auto">{chapter.num}</span>
-                  <LotusGeometry className="w-8 h-8 text-gold/10 group-hover:text-gold/30 transition-all" />
-                </div>
-                
-                <div className="mb-6 w-full">
-                  <h3 className="text-xl font-serif text-parchment leading-tight mb-3 min-h-[3rem]">{chapter.title}</h3>
-                  {chapter.verse && (
-                    <p className="text-gold/50 font-serif italic text-xs leading-snug line-clamp-2">"{chapter.verse}"</p>
-                  )}
-                </div>
-                
-                <div className="space-y-4 flex-grow">
-                  <div className="space-y-2">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-gold font-bold">The Essence</span>
-                    <p className="text-parchment/60 font-light leading-relaxed text-[13px]">
-                      {chapter.desc}
-                    </p>
-                  </div>
-                </div>
+              <div className="absolute w-1/3 h-1/3 rounded-full overflow-hidden blur-sm">
+                <img src={authorImage} alt="" className="w-full h-full object-cover grayscale mix-blend-screen" />
               </div>
+              <MandalaGrid className="w-full h-full text-gold" />
             </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
 
-const benefits = [
-  {
-    title: "Mental Clarity",
-    desc: "Dissolve the fog of overthinking and see your path with absolute precision.",
-    icon: <Zap className="w-6 h-6" />,
-  },
-  {
-    title: "Spiritual Strength",
-    desc: "Access the latent power within your DNA through sacred sound vibrations.",
-    icon: <Shield className="w-6 h-6" />,
-  },
-  {
-    title: "Detachment",
-    desc: "Observe the world without being consumed by it. Freedom from chaos.",
-    icon: <BookOpen className="w-6 h-6" />,
-  },
-  {
-    title: "Deep Peace",
-    desc: "Sink into the heart's quiet and remain steady in any storm.",
-    icon: <Star className="w-6 h-6" />,
-  },
-];
-
-const BenefitsSection = () => {
-  return (
-    <section id="benefits" className="py-20 md:py-24 px-4 md:px-6 bg-parchment text-maroon-dark">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 md:mb-20">
-          <span className="text-gold-muted uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Transformation</span>
-          <h2 className="text-5xl md:text-7xl font-serif">What You Will Gain</h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {benefits.map((benefit, i) => (
             <motion.div
-              key={benefit.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="p-8 border border-maroon-dark/10 rounded-2xl flex flex-col items-center md:items-start text-center md:text-left"
+              initial={{ opacity: 0, scale: 0.8, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.2 }}
+              className="relative w-64 h-auto md:w-96"
             >
-              <div className="w-12 h-12 bg-maroon text-parchment rounded-full flex items-center justify-center mb-6">
-                {benefit.icon}
-              </div>
-              <h3 className="text-2xl font-serif mb-4">{benefit.title}</h3>
-              <p className="text-maroon-dark/60 leading-relaxed">
-                {benefit.desc}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const AuthorSection = () => {
-  return (
-    <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark text-parchment relative overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
-        <div className="w-full md:w-5/12">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="aspect-[4/5] rounded-3xl overflow-hidden relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full" />
               <img 
-                src={authorPortrait} 
-                alt="Sakshi Shree" 
-                className="w-full h-full object-cover object-top"
+                src={bookCover} 
+                alt="Maha Mantras Book Cover" 
+                className="relative w-full h-auto shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm"
               />
-              {/* Gold frame overlay */}
-              <div className="absolute inset-4 border border-gold/20 rounded-2xl pointer-events-none" />
             </motion.div>
+          </div>
         </div>
-        <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Enlightened Master</span>
-            <h2 className="text-4xl md:text-7xl font-serif mb-8 text-parchment">Sakshi Shree</h2>
-            <p className="text-xl text-parchment/70 font-light leading-relaxed mb-8">
-              Born Rām Krishna Upādhyāya, Sakshi Shree is a rare triad: an enlightened master, a householder, and a former civil servant. 
-              Mentored by Swami Sudarshanacharya Ji Maharaj, he bridges the gap between ancient Himalayan wisdom and the modern boardroom.
-            </p>
-            <p className="text-lg text-parchment/60 font-light leading-relaxed mb-12 italic border-l-4 border-gold/30 pl-8">
-              "I do not teach any religion; I bring out the best of philosophies to enhance the lives of those I touch. 
-              The battlefield of Kurukshetra has not disappeared—it has only multiplied. It now exists within every individual navigating ambition and conscience."
-            </p>
-            <button 
-              onClick={() => document.getElementById('preorder')?.scrollIntoView({ behavior: 'smooth' })}
-              className="mb-10 px-10 py-4 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full hover:scale-105 transition-transform"
+      </section>
+
+      {/* Integrated Author Area */}
+      <section id="author" className="py-20 md:py-32 px-4 md:px-6 text-parchment relative overflow-hidden border-t border-gold/5">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
+          <div className="w-full md:w-5/12">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="aspect-[4/5] rounded-3xl overflow-hidden relative group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark via-transparent to-transparent z-10" />
+                <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <img 
+                  src={authorPortrait} 
+                  alt="Sakshi Shree" 
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-4 border border-gold/20 rounded-2xl pointer-events-none" />
+              </motion.div>
+          </div>
+          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
             >
-              Reserve Your Copy
-            </button>
-            <div className="flex flex-col md:flex-row items-center md:items-center gap-6">
+              <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Enlightened Master</span>
+              <h2 className="text-4xl md:text-7xl font-serif mb-8 text-parchment">Sakshi Shree</h2>
+              <p className="text-xl text-parchment/70 font-light leading-relaxed mb-8">
+                Born Rām Krishna Upādhyāya, Sakshi Shree is a rare triad: an enlightened master, a householder, and a former civil servant. 
+                Mentored by Swami Sudarshanacharya Ji Maharaj, he bridges the gap between ancient Himalayan wisdom and the modern boardroom.
+              </p>
+              <p className="text-lg text-parchment/60 font-light leading-relaxed mb-12 italic border-l-4 border-gold/30 pl-8">
+                "I do not teach any religion; I bring out the best of philosophies to enhance the lives of those I touch. 
+                The battlefield of Kurukshetra has not disappeared—it has only multiplied. It now exists within every individual navigating ambition and conscience."
+              </p>
+              <button 
+                onClick={() => document.getElementById('preorder')?.scrollIntoView({ behavior: 'smooth' })}
+                className="mb-12 px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full hover:scale-105 active:scale-95 transition-all shadow-xl shadow-gold/10"
+              >
+                Reserve Your Copy Now
+              </button>
+              <div className="flex flex-col md:flex-row items-center md:items-center gap-6">
+                <div className="w-12 h-px bg-gold" />
+                <span className="font-serif italic text-xl text-gold/80">Guided by the Wisdom of the Gita</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
               <div className="w-12 h-px bg-gold" />
               <span className="font-serif italic text-xl text-gold/80">Guided by the Wisdom of the Gita</span>
             </div>
