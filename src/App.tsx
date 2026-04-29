@@ -633,13 +633,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10 mb-10 md:mb-12">
           <div className="flex items-center gap-3">
-            <DharmaChakra className="w-8 h-8 text-gold" />
-            <span className="font-serif text-xl tracking-widest uppercase text-maroon-dark">Maha Mantras</span>
+            <DharmaChakra className="w-8 h-8 text-[#D4AF37]" />
+            <span className="font-serif text-xl tracking-widest uppercase text-[#4A0404]">Maha Mantras</span>
           </div>
           
           <div className="flex gap-8 md:gap-10">
             {['Privacy', 'Terms', 'Shipping', 'Contact'].map((item) => (
-              <a key={item} href="#" className="text-sm uppercase tracking-wider text-maroon-dark/50 hover:text-gold transition-colors">
+              <a key={item} href="#" className="text-sm uppercase tracking-wider text-[#4A0404]/70 hover:text-[#D4AF37] transition-colors">
                 {item}
               </a>
             ))}
@@ -652,7 +652,7 @@ const Footer = () => {
                 href={link.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className={`w-10 h-10 rounded-full border border-maroon-dark/10 flex items-center justify-center text-maroon-dark/60 transition-all ${link.color}`}
+                className={`w-10 h-10 rounded-full border border-[#4A0404]/10 flex items-center justify-center text-[#4A0404]/60 transition-all ${link.color}`}
               >
                 {link.icon}
               </a>
@@ -660,9 +660,9 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="text-center">
-          <p className="text-sm uppercase tracking-[0.25em] text-maroon-dark/30">
-            © 2026 Maha Mantras Publishing. All Rights Reserved.
+        <div className="text-center pt-8 border-t border-[#4A0404]/5">
+          <p className="text-sm uppercase tracking-[0.25em] text-[#4A0404] font-medium">
+            © 2026 <span className="text-[#D4AF37]">Maha Mantras Publishing</span>. All Rights Reserved.
           </p>
         </div>
       </div>
