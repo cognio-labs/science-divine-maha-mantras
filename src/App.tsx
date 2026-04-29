@@ -167,12 +167,15 @@ const HeroSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
             </div>
           </motion.div>
 
-          {/* Right Content: Author Portrait & Mandala */}
+          {/* Right Content: Author Portrait & Mandala (with Book in background) */}
           <div className="relative order-1 lg:order-2 flex justify-center lg:justify-center">
             <motion.div 
               style={{ y: y1, rotate }}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] opacity-15 pointer-events-none flex items-center justify-center"
             >
+              <div className="absolute w-1/3 h-1/3 rounded-full overflow-hidden blur-sm">
+                <img src={bookCover} alt="" className="w-full h-full object-cover grayscale mix-blend-screen" />
+              </div>
               <MandalaGrid className="w-full h-full text-gold" />
             </motion.div>
 
@@ -243,6 +246,10 @@ const AuthorSection = () => {
     </section>
   );
 };
+
+const AuthoritySection = () => null;
+const ChaptersSection = () => null;
+const BenefitsSection = () => null;
 
 const Testimonials = () => {
   const reviews = [
@@ -546,6 +553,9 @@ export default function App() {
       <Navbar onOpenModal={openPreOrder} />
       <HeroSection onOpenModal={openPreOrder} />
       <AuthorSection />
+      <AuthoritySection />
+      <ChaptersSection />
+      <BenefitsSection />
       <Testimonials />
       <PreOrderSection onOpenModal={openPreOrder} />
       <FinalImpact />
