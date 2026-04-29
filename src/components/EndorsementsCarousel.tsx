@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { X } from 'lucide-react';
-import { MandalaGrid } from './SacredArt';
 import sudhanshuImage from '../images/Sudhanshu_Trivedi.png';
 import shamikaImage from '../images/Shamika Ravi.png';
 import anandImage from '../images/Anand Ranganathan.png';
@@ -59,10 +58,6 @@ export default function EndorsementsCarousel() {
 
   return (
     <section className="py-24 md:py-32 bg-maroon-dark relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
-        <MandalaGrid className="w-full h-full text-gold" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16 md:mb-20">
           <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold italic">Endorsements</span>
@@ -85,7 +80,7 @@ export default function EndorsementsCarousel() {
               onClick={() => setSelectedEndorsement(item)}
               className="group cursor-pointer relative overflow-hidden rounded-[2.25rem] border border-gold/20 bg-[#f6efe6] text-[#4A0404] shadow-[0_28px_70px_rgba(0,0,0,0.25)] min-h-[340px] md:min-h-[360px]"
             >
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,255,255,0.05)),radial-gradient(circle_at_top_left,rgba(212,175,55,0.08),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(74,4,4,0.05),transparent_34%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.40),rgba(255,255,255,0.06))]" />
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
               <div className="relative z-10 h-full p-6 md:p-8 flex flex-col justify-between">
