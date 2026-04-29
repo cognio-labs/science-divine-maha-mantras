@@ -88,10 +88,10 @@ export default function EndorsementsCarousel() {
             <motion.article
               key={activeEndorsement.name}
               custom={direction}
-              initial={{ opacity: 0, x: direction > 0 ? 60 : -60, scale: 0.99 }}
+              initial={{ opacity: 0, scale: 0.99 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: direction > 0 ? -60 : 60, scale: 0.99 }}
-              transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, scale: 0.99 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => setSelectedEndorsement(activeEndorsement)}
               className="group relative cursor-pointer overflow-hidden rounded-[30px] md:rounded-[36px] border-[4px] border-[#4aa5b8] bg-[#fbfbf9] text-[#1f4b53] shadow-[0_22px_60px_rgba(0,0,0,0.16)] min-h-[380px] md:min-h-[400px]"
             >
