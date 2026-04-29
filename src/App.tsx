@@ -421,72 +421,6 @@ const BenefitsSection = () => {
   );
 };
 
-const PreviewSection = () => {
-  return (
-    <section id="preview" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark relative overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
-        <div className="flex-1">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-center md:text-left flex flex-col items-center md:items-start"
-          >
-            <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">Inside the Pages</span>
-            <h2 className="text-4xl md:text-7xl font-serif mb-8 italic text-parchment">A Mental Operating System</h2>
-            <p className="text-xl text-parchment/60 font-light leading-relaxed mb-12">
-              This is not a motivational book. It is a technical manual for the human mind. 
-              Each page is designed with Apple-level precision to ensure the knowledge 
-              is not just read, but integrated.
-            </p>
-            <ul className="space-y-6 text-left">
-              {['Premium 120gsm Parchment Paper', 'Minimalist Vedic Illustrations', 'Step-by-Step Practice Guides', 'Luxury Hardcover Binding'].map((item) => (
-                <li key={item} className="flex items-center gap-4 text-parchment/80">
-                  <div className="w-1.5 h-1.5 bg-gold rounded-full" />
-                  <span className="tracking-wide uppercase text-xs font-medium">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-        
-        <div className="flex-1 relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative z-10 aspect-[4/5] bg-parchment rounded-lg shadow-2xl p-8 md:p-10 overflow-hidden"
-          >
-            <div className="h-full border border-maroon-dark/5 p-6 md:p-8 flex flex-col justify-between">
-              <div className="flex justify-between items-start">
-                <span className="text-[10px] uppercase tracking-widest text-maroon-dark/40">Chapter 04</span>
-                <DharmaChakra className="w-6 h-6 text-gold/40" />
-              </div>
-              <div className="max-w-xs">
-                <h3 className="font-serif text-4xl text-maroon-dark mb-6">The Vibration of Silence</h3>
-                <div className="space-y-4">
-                  <div className="h-1 w-full bg-maroon-dark/5" />
-                  <div className="h-1 w-full bg-maroon-dark/5" />
-                  <div className="h-1 w-3/4 bg-maroon-dark/5" />
-                  <div className="h-1 w-full bg-maroon-dark/5" />
-                </div>
-              </div>
-              <div className="flex justify-center">
-                <LotusGeometry className="w-24 h-24 text-gold/10" />
-              </div>
-              <div className="text-center">
-                <span className="text-[8px] uppercase tracking-widest text-maroon-dark/40">Page 108</span>
-              </div>
-            </div>
-          </motion.div>
-          <div className="absolute -top-10 -right-10 w-64 h-64 bg-gold/10 blur-3xl rounded-full" />
-          <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-gold/10 blur-3xl rounded-full" />
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const AuthorSection = () => {
   return (
     <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark text-parchment relative overflow-hidden">
@@ -687,36 +621,6 @@ const FinalImpact = () => {
   );
 };
 
-const GlossarySection = () => {
-  const terms = [
-    { term: "Sakshi", meaning: "The inner witness; awareness that observes without judgement." },
-    { term: "Svadharma", meaning: "One’s own right path; what is truly ‘yours to do’." },
-    { term: "Nishkama Karma", meaning: "Action performed without clinging to results; pure doing." },
-    { term: "Gunatita", meaning: "One who lives beyond the gunas; free of compulsive reactions." },
-    { term: "Atman", meaning: "The Self; pure awareness underlying body and mind." },
-    { term: "Samatva", meaning: "Equanimity in gain/loss, praise/blame." }
-  ];
-
-  return (
-    <section className="py-16 md:py-20 px-4 md:px-6 bg-maroon-dark/50">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-10 md:mb-12">
-          <span className="text-gold uppercase tracking-[0.3em] text-[10px] mb-2 block font-bold">Wisdom Lexicon</span>
-          <h2 className="text-4xl font-serif text-parchment">Key Sanskrit Terms</h2>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-8">
-          {terms.map((item) => (
-            <div key={item.term} className="border-l border-gold/20 pl-6 py-2">
-              <h4 className="text-gold font-serif text-xl mb-1">{item.term}</h4>
-              <p className="text-parchment/40 text-sm font-light leading-relaxed">{item.meaning}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const Footer = () => {
   const socialLinks = [
     { icon: <Instagram size={18} />, url: 'https://www.instagram.com/sakshishreeofficial?igsh=MXY2dzN4MXU4MmYyMg==' },
@@ -869,10 +773,8 @@ export default function App() {
       <AuthoritySection />
       <ChaptersSection />
       <BenefitsSection />
-      <PreviewSection />
       <Testimonials />
       <PreOrderSection onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
-      <GlossarySection />
       <FinalImpact />
       <Footer />
     </div>
