@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ChevronLeft, ChevronRight, Star, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { MandalaGrid } from './SacredArt';
 import sudhanshuImage from '../images/Sudhanshu_Trivedi.png';
 import shamikaImage from '../images/Shamika Ravi.png';
@@ -55,24 +55,11 @@ In an age of information overload, anxiety and identity confusion, this book is 
 ];
 
 export default function EndorsementsCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState<1 | -1>(1);
   const [selectedEndorsement, setSelectedEndorsement] = useState<Endorsement | null>(null);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setDirection(1);
-      setActiveIndex((current) => (current + 1) % endorsements.length);
-    }, 6500);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
-  const activeEndorsement = endorsements[activeIndex];
 
   return (
     <section className="py-24 md:py-32 bg-maroon-dark relative overflow-hidden">
-      <div className="absolute inset-0 opacity-[0.07] pointer-events-none">
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none">
         <MandalaGrid className="w-full h-full text-gold" />
       </div>
 
@@ -83,125 +70,56 @@ export default function EndorsementsCarousel() {
             Voice of <span className="text-gold italic">Authority</span>
           </h2>
           <p className="mt-5 text-parchment/50 text-sm uppercase tracking-[0.28em]">
-            Auto-sliding testimonials from respected voices
+            Four respected voices, presented as cards
           </p>
         </div>
 
-        <div className="flex justify-center">
-          <div className="w-full max-w-5xl">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.article
-                key={activeEndorsement.name}
-                custom={direction}
-                initial={{ opacity: 0, x: direction > 0 ? 80 : -80, scale: 0.98 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: direction > 0 ? -80 : 80, scale: 0.98 }}
-                transition={{ duration: 0.6, ease: 'easeOut' }}
-                onClick={() => setSelectedEndorsement(activeEndorsement)}
-                className="relative cursor-pointer overflow-hidden rounded-[2.5rem] border border-gold/20 bg-[#f6efe6] text-[#4A0404] shadow-[0_30px_80px_rgba(0,0,0,0.35)] min-h-[420px] md:min-h-[480px]"
-              >
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(212,175,55,0.12),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(74,4,4,0.06),_transparent_30%)]" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {endorsements.map((item, idx) => (
+            <motion.article
+              key={item.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.08 }}
+              onClick={() => setSelectedEndorsement(item)}
+              className="group cursor-pointer relative overflow-hidden rounded-[2.25rem] border border-gold/20 bg-[#f6efe6] text-[#4A0404] shadow-[0_28px_70px_rgba(0,0,0,0.25)] min-h-[340px] md:min-h-[360px]"
+            >
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,255,255,0.05)),radial-gradient(circle_at_top_left,rgba(212,175,55,0.08),transparent_40%),radial-gradient(circle_at_bottom_right,rgba(74,4,4,0.05),transparent_34%)]" />
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
-                <div className="relative z-10 p-6 md:p-10 lg:p-12 flex h-full flex-col justify-between">
-                  <div className="flex flex-col gap-8">
-                    <div className="flex items-start justify-between gap-6">
-                      <div className={`flex items-center gap-4 ${activeIndex % 2 === 0 ? 'order-1' : 'order-2'}`}>
-                        <div className="w-[72px] h-[72px] md:w-20 md:h-20 rounded-full border-2 border-gold/80 bg-[#efe6d8] p-1 shadow-lg overflow-hidden shrink-0">
-                          <img
-                            src={activeEndorsement.image}
-                            alt={activeEndorsement.name}
-                            className="w-full h-full object-cover rounded-full"
-                          />
-                        </div>
-                        <div className={`hidden sm:block ${activeIndex % 2 === 0 ? 'text-left' : 'text-right'}`}>
-                          <p className="font-serif text-2xl md:text-3xl text-[#4A0404]">{activeEndorsement.name}</p>
-                          <p className="text-gold-muted text-[11px] md:text-xs font-bold uppercase tracking-[0.24em] mt-1">
-                            {activeEndorsement.heading}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className={`hidden sm:flex flex-col items-end gap-3 ${activeIndex % 2 === 0 ? 'order-2' : 'order-1 items-start'}`}>
-                        <span className="inline-flex items-center rounded-full border border-gold/25 bg-white/70 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-[#4A0404]/70">
-                          Featured Review
-                        </span>
-                        <div className="flex gap-1 text-gold">
-                          {Array.from({ length: 5 }).map((_, starIdx) => (
-                            <Star key={starIdx} size={16} fill="currentColor" />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="sm:hidden">
-                      <p className="font-serif text-2xl text-[#4A0404]">{activeEndorsement.name}</p>
-                      <p className="text-gold-muted text-[11px] uppercase tracking-[0.24em] mt-1 font-bold">
-                        {activeEndorsement.heading}
-                      </p>
-                    </div>
-
-                    <div className="max-w-4xl">
-                      <p className="text-3xl text-gold/50 font-serif leading-none mb-4">“</p>
-                      <p className="text-[#4A0404]/75 text-lg md:text-xl font-light leading-relaxed italic line-clamp-5 md:line-clamp-4">
-                        {activeEndorsement.text}
-                      </p>
-                    </div>
+              <div className="relative z-10 h-full p-6 md:p-8 flex flex-col justify-between">
+                <div className="flex items-start justify-between gap-5">
+                  <div className={`flex-1 ${idx % 2 === 0 ? 'order-2 text-right' : 'order-1 text-left'}`}>
+                    <h3 className="font-serif text-2xl md:text-[1.7rem] leading-tight">{item.name}</h3>
+                    <p className="text-gold-muted text-[10px] md:text-xs uppercase tracking-[0.24em] font-bold mt-1">
+                      {item.heading}
+                    </p>
                   </div>
 
-                  <div className="mt-10">
-                    <div className="flex items-center justify-between gap-4 pt-5 border-t border-[#4A0404]/10">
-                      <span className="text-[#4A0404]/45 text-[10px] uppercase tracking-[0.32em] font-medium">Full Testimonial</span>
-                      <span className="text-gold text-xs font-bold uppercase tracking-widest">Read More →</span>
-                    </div>
-
-                    <div className="mt-6 flex items-center justify-between gap-4">
-                      <div className="flex items-center gap-2">
-                        {endorsements.map((item, idx) => (
-                          <button
-                            key={item.name}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setDirection(idx > activeIndex ? 1 : -1);
-                              setActiveIndex(idx);
-                            }}
-                            className={`h-2.5 rounded-full transition-all duration-300 ${
-                              idx === activeIndex ? 'w-10 bg-gold' : 'w-2.5 bg-[#4A0404]/20'
-                            }`}
-                            aria-label={`Show testimonial ${idx + 1}`}
-                          />
-                        ))}
-                      </div>
-
-                      <div className="flex gap-2">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setDirection(-1);
-                            setActiveIndex((current) => (current - 1 + endorsements.length) % endorsements.length);
-                          }}
-                          className="h-11 w-11 rounded-full border border-[#4A0404]/10 bg-white/80 text-[#4A0404] flex items-center justify-center hover:border-gold/30 hover:text-gold transition-colors"
-                          aria-label="Previous testimonial"
-                        >
-                          <ChevronLeft size={18} />
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setDirection(1);
-                            setActiveIndex((current) => (current + 1) % endorsements.length);
-                          }}
-                          className="h-11 w-11 rounded-full border border-[#4A0404]/10 bg-white/80 text-[#4A0404] flex items-center justify-center hover:border-gold/30 hover:text-gold transition-colors"
-                          aria-label="Next testimonial"
-                        >
-                          <ChevronRight size={18} />
-                        </button>
-                      </div>
-                    </div>
+                  <div className={`w-[76px] h-[76px] md:w-[88px] md:h-[88px] overflow-hidden rounded-2xl border border-gold/40 bg-[#efe6d8] shadow-md shrink-0 ${idx % 2 === 0 ? 'order-1' : 'order-2'}`}>
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                   </div>
                 </div>
-              </motion.article>
-            </AnimatePresence>
-          </div>
+
+                <div className="mt-8">
+                  <p className="text-3xl text-gold/40 font-serif leading-none mb-4">“</p>
+                  <p className="text-[#4A0404]/75 text-base md:text-lg font-light leading-relaxed italic line-clamp-4">
+                    {item.text}
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-5 border-t border-[#4A0404]/10 flex items-center justify-between gap-4">
+                  <span className="text-[#4A0404]/45 text-[10px] uppercase tracking-[0.32em] font-medium">
+                    Full Testimonial
+                  </span>
+                  <span className="text-gold text-xs font-bold uppercase tracking-widest">
+                    Read More →
+                  </span>
+                </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
 
