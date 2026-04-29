@@ -13,7 +13,6 @@ type Endorsement = {
   heading: string;
   text: string;
   badge: string;
-  services: string;
 };
 
 const endorsements: Endorsement[] = [
@@ -23,7 +22,6 @@ const endorsements: Endorsement[] = [
     image: sudhanshuImage,
     heading: 'A Work of a Different Order',
     badge: 'Legacy',
-    services: 'Spiritual discipline, conscious action, self-awareness',
     text: `Anyone who has serious interest in India's intellectual and civilizational heritage will find this book Maha Mantras by Sakshi Shree as a work of a different order. It is not merely as one of the interpretations of Bhagwad Gita but distils it into a contemporary context through ten actionable, life-altering principles. From the courage of Svadharma to the equanimity of Samatva Yoga.`
   },
   {
@@ -32,7 +30,6 @@ const endorsements: Endorsement[] = [
     image: anandImage,
     heading: 'A Remarkable, Revolutionary Work',
     badge: 'Insight',
-    services: 'Direct transmission, modern context, deep contemplation',
     text: `"In Living the Gita, Guru Sakshi Shree carries forward a vibrant and genuine chain of spiritual transmission, having trained directly under the revered master Sadguru Sudarshanacharya. What sets him apart so strikingly today, is that he extends well past any inherited tradition. His philosophy rests in his remarkable fusion of deep inner realisation with active daily living, pointing toward total inner freedom paired with wholehearted involvement in the outer world."`
   },
   {
@@ -41,7 +38,6 @@ const endorsements: Endorsement[] = [
     image: amishImage,
     heading: 'Wisdom Out of the Puja Room',
     badge: 'Impact',
-    services: 'Accessible philosophy, actionable practice, grounded spirituality',
     text: `In this powerful and practical book, Guruji Sakshi Shree does something very rare: he brings the eternal wisdom of the Gita out of the puja room and plants it firmly in the messy battlefield of modern life. Each maha mantra is not a slogan to be memorized, but a tool for living - whether you are a student confused about your path, a householder juggling responsibilities, or a seeker struggling with inner turmoil.`
   },
   {
@@ -50,7 +46,6 @@ const endorsements: Endorsement[] = [
     image: shamikaImage,
     heading: 'Timely and Inspiring Work',
     badge: 'Clarity',
-    services: 'Human consciousness, inner mastery, purposeful living',
     text: `'Living the Gita in the Twenty-First Century' is a timely and inspiring work that brings the eternal wisdom of the Bhagavad Gita into the heart of modern life. Sakshi Shree presents the Gita not merely as scripture, but as a practical science of human consciousness, offering clarity in an age of stress, speed, and distraction.`
   }
 ];
@@ -64,8 +59,7 @@ export default function EndorsementsCarousel() {
     const timer = window.setInterval(() => {
       setDirection(1);
       setActiveIndex((current) => (current + 1) % endorsements.length);
-    }, 4500);
-
+    }, 3600);
     return () => window.clearInterval(timer);
   }, []);
 
@@ -94,27 +88,31 @@ export default function EndorsementsCarousel() {
             <motion.article
               key={activeEndorsement.name}
               custom={direction}
-              initial={{ opacity: 0, x: direction > 0 ? 70 : -70, scale: 0.985 }}
+              initial={{ opacity: 0, x: direction > 0 ? 60 : -60, scale: 0.99 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: direction > 0 ? -70 : 70, scale: 0.985 }}
-              transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+              exit={{ opacity: 0, x: direction > 0 ? -60 : 60, scale: 0.99 }}
+              transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
               onClick={() => setSelectedEndorsement(activeEndorsement)}
-              className="group relative cursor-pointer overflow-hidden rounded-[18px] md:rounded-[24px] border border-[#e9ecef] bg-[#fbfaf8] text-[#1f4b53] shadow-[0_22px_60px_rgba(0,0,0,0.20)] min-h-[460px] md:min-h-[440px]"
+              className="group relative cursor-pointer overflow-hidden rounded-[34px] md:rounded-[42px] border border-[#dfe8ea] bg-[#fbfbf9] text-[#1f4b53] shadow-[0_26px_70px_rgba(0,0,0,0.18)] min-h-[470px] md:min-h-[480px]"
             >
-              <div className="absolute top-0 right-0 w-8 h-8 rounded-full bg-[#eaf2f2] translate-x-1/2 -translate-y-1/2 opacity-90" />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(250,250,248,0.96))]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(248,249,247,0.95))]" />
+              <div className="absolute top-0 right-0 w-7 h-7 rounded-full bg-[#edf4f4] translate-x-1/2 -translate-y-1/2" />
 
-              <div className="relative z-10 h-full p-5 md:p-7 lg:p-8 flex flex-col justify-between">
+              <div className="relative z-10 h-full p-6 md:p-8 lg:p-10 flex flex-col justify-between">
                 <div className="flex items-start justify-between gap-4 md:gap-6">
                   <div className="flex items-start gap-3 md:gap-4">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-[3px] border-[#57b4ab] shadow-[0_6px_16px_rgba(0,0,0,0.12)] shrink-0">
-                      <img src={activeEndorsement.image} alt={activeEndorsement.name} className="w-full h-full object-cover" />
+                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-[4px] border-[#57b4ab] shadow-[0_10px_20px_rgba(0,0,0,0.10)] shrink-0 bg-white">
+                      <img
+                        src={activeEndorsement.image}
+                        alt={activeEndorsement.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    <div className="pt-0.5">
-                      <p className="text-[#183f46] font-semibold text-sm md:text-base leading-tight">
+                    <div className="pt-1">
+                      <p className="text-[#183f46] font-semibold text-base md:text-[1.05rem] leading-tight">
                         {activeEndorsement.name}
                       </p>
-                      <p className="text-[#54a69f] text-xs md:text-sm leading-tight mt-1">
+                      <p className="text-[#54a69f] text-xs md:text-sm leading-tight mt-1 max-w-[220px]">
                         {activeEndorsement.title}
                       </p>
                     </div>
@@ -126,22 +124,21 @@ export default function EndorsementsCarousel() {
                 </div>
 
                 <div className="py-8 md:py-10">
-                  <div className="flex justify-center mb-6 md:mb-8">
-                    <Quote size={42} className="text-[#8ad0ca] md:w-12 md:h-12" strokeWidth={1.8} />
+                  <div className="flex justify-end mb-4 md:mb-6 pr-1 md:pr-2">
+                    <Quote size={40} className="text-[#d3e8ea]" strokeWidth={1.6} />
                   </div>
 
-                  <p className="text-center text-[#224f58] italic text-[17px] md:text-[21px] leading-[1.55] md:leading-[1.6] max-w-4xl mx-auto px-1 md:px-10">
+                  <p className="text-center text-[#224f58] italic text-[16px] md:text-[19px] leading-[1.58] md:leading-[1.62] max-w-4xl mx-auto px-1 md:px-10">
                     {activeEndorsement.text}
                   </p>
-
                 </div>
 
                 <div className="pt-5 border-t border-[#dce6e6]">
                   <p className="text-[11px] text-[#6f8f93] uppercase tracking-[0.18em] text-center mb-3">
-                    Services Provided
+                    Full Testimonial
                   </p>
                   <p className="text-center text-[#204b54] text-sm md:text-base font-medium">
-                    {activeEndorsement.services}
+                    {activeEndorsement.heading}
                   </p>
                 </div>
 
@@ -150,7 +147,7 @@ export default function EndorsementsCarousel() {
                     e.stopPropagation();
                     setSelectedEndorsement(activeEndorsement);
                   }}
-                  className="absolute right-5 md:right-7 top-16 md:top-20 text-[#58aea7] text-xs font-semibold uppercase tracking-[0.18em]"
+                  className="absolute right-5 md:right-7 top-18 md:top-20 text-[#58aea7] text-xs font-semibold uppercase tracking-[0.18em]"
                 >
                   Read More →
                 </button>
