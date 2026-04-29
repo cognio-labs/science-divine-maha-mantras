@@ -239,9 +239,7 @@ const HeroSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
                 Reserve Your Copy Now
               </button>
               <div className="flex flex-col md:flex-row items-center md:items-center gap-6">
-                <div className="w-12 h-px bg-gold" />
-                <span className="font-serif italic text-xl text-gold/80">Guided by the Wisdom of the Gita</span>
-              </div>
+  
             </motion.div>
           </div>
         </div>
