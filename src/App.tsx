@@ -197,16 +197,6 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
-      >
-        <span className="text-[10px] uppercase tracking-[0.4em] text-gold/40">Scroll to Begin</span>
-        <div className="w-px h-12 bg-gradient-to-b from-gold/40 to-transparent" />
-      </motion.div>
     </section>
   );
 };
