@@ -26,6 +26,7 @@ import sudhanshuImage from './images/Sudhanshu_Trivedi.png';
 import shamikaImage from './images/Shamika Ravi.png';
 import anandImage from './images/Anand Ranganathan.png';
 import amishImage from './images/Amish Tripathi.png';
+import EndorsementsCarousel from './components/EndorsementsCarousel';
 
 // --- Components ---
 
@@ -888,7 +889,7 @@ export default function App() {
       <AuthoritySection />
       <ChaptersSection />
       <BenefitsSection />
-      <EndorsementsSection />
+      <EndorsementsCarousel />
       <PreOrderSection onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
       <FinalImpact />
       <Footer />
