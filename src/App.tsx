@@ -45,6 +45,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
     { name: 'The Book', href: '#book' },
     { name: 'Chapters', href: '#chapters' },
     { name: 'Benefits', href: '#benefits' },
+    { name: 'Testimonial', href: '#testimonial' },
   ];
 
   return (
@@ -59,7 +60,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
         </motion.div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-12">
+        <div className="hidden md:flex items-center gap-8 lg:gap-12">
           {navLinks.map((link, i) => (
             <motion.a
               key={link.name}

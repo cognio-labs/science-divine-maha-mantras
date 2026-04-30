@@ -95,7 +95,7 @@ export default function EndorsementsCarousel() {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-maroon-dark relative overflow-hidden">
+    <section id="testimonial" className="py-24 md:py-32 bg-maroon-dark relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-14 md:mb-20">
           <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold italic">Endorsements</span>
