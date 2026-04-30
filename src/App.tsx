@@ -18,9 +18,10 @@ import {
   Youtube,
   Instagram
 } from 'lucide-react';
-import { DharmaChakra, LotusGeometry, SoundWave, MandalaGrid } from './components/SacredArt';
+import { LotusGeometry, SoundWave, MandalaGrid } from './components/SacredArt';
 import authorImage from './images/author-image.png';
 import bookCover from './images/book.jpeg';
+import brandLogo from './images/gitamahamantrs.png';
 import authorPortrait from './images/author-portrait-premium.png';
 import sudhanshuImage from './images/Sudhanshu_Trivedi.png';
 import shamikaImage from './images/Shamika Ravi.png';
@@ -55,7 +56,11 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-3"
         >
-          <DharmaChakra className="w-8 h-8 text-gold" />
+          <img
+            src={brandLogo}
+            alt="Maha Mantras logo"
+            className="w-10 h-10 rounded-full object-cover border border-gold/20 shadow-lg shadow-black/20"
+          />
           <span className="font-serif text-xl tracking-widest uppercase text-parchment">Maha Mantras</span>
         </motion.div>
 
@@ -748,7 +753,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10 mb-10 md:mb-12">
           <div className="flex items-center gap-3">
-            <DharmaChakra className="w-8 h-8 text-[#D4AF37]" />
+            <img
+              src={brandLogo}
+              alt="Maha Mantras logo"
+              className="w-10 h-10 rounded-full object-cover border border-[#D4AF37]/20 shadow-lg shadow-black/10"
+            />
             <span className="font-serif text-xl tracking-widest uppercase text-[#4A0404]">Maha Mantras</span>
           </div>
           
