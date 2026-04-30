@@ -159,15 +159,6 @@ export default function EndorsementsCarousel() {
                   </p>
                 </div>
 
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedEndorsement(activeEndorsement);
-                  }}
-                  className="absolute right-4 md:right-6 top-14 md:top-16 text-[#58aea7] text-[11px] font-semibold uppercase tracking-[0.18em]"
-                >
-                  Read More →
-                </button>
               </div>
 
               <div className="absolute left-4 md:left-5 bottom-3 md:bottom-4 flex items-center gap-2">
