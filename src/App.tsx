@@ -479,7 +479,7 @@ const BenefitsSection = () => {
 };
 
 const EndorsementsSection = () => {
-  const [selectedEndorsement, setSelectedEndorsement] = useState<null | typeof endorsements[0]>(null);
+  const [selectedEndorsement, setSelectedEndorsement] = useState(null as null | (typeof endorsements)[number]);
 
   const endorsements = [
     {

@@ -76,8 +76,8 @@ Senior Economist and Member of the Economic Advisory Council to the Prime Minist
 
 export default function EndorsementsCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState<1 | -1>(1);
-  const [selectedEndorsement, setSelectedEndorsement] = useState<Endorsement | null>(null);
+  const [direction, setDirection] = useState(1 as 1 | -1);
+  const [selectedEndorsement, setSelectedEndorsement] = useState(null as Endorsement | null);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
