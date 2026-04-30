@@ -121,11 +121,12 @@ export default function EndorsementsCarousel() {
               <div className="relative z-10 h-full px-4 md:px-6 pt-6 md:pt-7 pb-5 md:pb-6 flex flex-col justify-between">
                 <div className="flex items-start justify-between gap-3 md:gap-5">
                   <div className="flex items-start gap-3 md:gap-4">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-[4px] border-[#57b4ab] shadow-[0_8px_16px_rgba(0,0,0,0.10)] shrink-0 bg-white -mt-2 md:-mt-3">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-[3px] border-[#57b4ab] shrink-0 bg-white -mt-2 md:-mt-3">
                       <img
                         src={activeEndorsement.image}
                         alt={activeEndorsement.name}
-                        className="w-full h-full object-cover"
+                        decoding="async"
+                        className="w-full h-full object-cover object-top"
                       />
                     </div>
                     <div className="pt-0.5">
