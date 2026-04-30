@@ -138,9 +138,6 @@ export default function EndorsementsCarousel() {
                     </div>
                   </div>
 
-                  <span className="hidden sm:inline-flex items-center rounded-full bg-[#eff6f5] px-4 py-2 text-xs font-medium text-[#54a69f]">
-                    {activeEndorsement.badge}
-                  </span>
                 </div>
 
                 <div className="relative py-5 md:py-6">
