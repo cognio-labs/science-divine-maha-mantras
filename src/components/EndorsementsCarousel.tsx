@@ -102,9 +102,6 @@ export default function EndorsementsCarousel() {
           <h2 className="text-4xl md:text-7xl font-serif text-parchment leading-tight">
             Voice of <span className="text-gold italic">Authority</span>
           </h2>
-          <p className="mt-5 text-parchment/50 text-sm uppercase tracking-[0.28em]">
-            Auto-sliding testimonials from respected voices
-          </p>
         </div>
 
         <div className="relative mx-auto max-w-4xl">

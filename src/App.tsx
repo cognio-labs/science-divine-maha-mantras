@@ -41,10 +41,10 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
   }, []);
 
   const navLinks = [
+    { name: 'Author', href: '#author' },
     { name: 'The Book', href: '#book' },
     { name: 'Chapters', href: '#chapters' },
     { name: 'Benefits', href: '#benefits' },
-    { name: 'Author', href: '#author' },
   ];
 
   return (
@@ -374,9 +374,6 @@ const ChaptersSection = () => {
             <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Sacred Journey</span>
             <h2 className="text-4xl md:text-8xl font-serif leading-tight md:leading-none text-parchment">The Eleven Chapters</h2>
           </div>
-          <p className="text-parchment/40 uppercase tracking-widest text-xs font-medium pb-4">
-            Extracted from 364 Pages of Wisdom
-          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8">
@@ -701,7 +698,7 @@ const PreOrderSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
               Reserve Your Copy Now
             </button>
             <p className="text-xs text-parchment/40 uppercase tracking-widest">
-              Shipping worldwide starting April 2026
+              Shipping worldwide starting MAY 2026
             </p>
           </div>
         </motion.div>
