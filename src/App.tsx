@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { LotusGeometry, SoundWave, MandalaGrid } from './components/SacredArt';
 import authorImage from './images/author-image.png';
-import bookCover from './images/book.jpeg';
+import bookCover from './images/maha-mantras.png';
 import authorPortrait from './images/author-portrait-premium.png';
 import sudhanshuImage from './images/Sudhanshu_Trivedi.png';
 import shamikaImage from './images/Shamika Ravi.png';
