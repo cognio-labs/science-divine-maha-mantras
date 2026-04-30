@@ -214,8 +214,6 @@ const AuthorSection = () => {
               viewport={{ once: true }}
               className="aspect-[4/5] rounded-3xl overflow-hidden relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <img 
                 src={authorPortrait} 
                 alt="Sakshi Shree" 
