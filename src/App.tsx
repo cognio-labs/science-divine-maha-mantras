@@ -7,12 +7,14 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import { 
   Facebook,
+  Copy,
   BookOpen, 
   Shield, 
   Zap, 
   Compass, 
   Anchor, 
   Star,
+  Share2,
   Menu,
   X,
   Youtube,
@@ -20,13 +22,17 @@ import {
 } from 'lucide-react';
 import { DharmaChakra, LotusGeometry, SoundWave, MandalaGrid } from './components/SacredArt';
 import authorImage from './images/author-image.png';
-import bookCover from './images/book.jpeg';
+import bookCover from './images/book-mockup-final.png';
 import authorPortrait from './images/author-portrait-premium.png';
 import sudhanshuImage from './images/Sudhanshu_Trivedi.png';
 import shamikaImage from './images/Shamika Ravi.png';
 import anandImage from './images/Anand Ranganathan.png';
 import amishImage from './images/Amish Tripathi.png';
 import EndorsementsCarousel from './components/EndorsementsCarousel';
+
+const SITE_URL = typeof window !== 'undefined' ? window.location.origin : '';
+const SHARE_MESSAGE = `Discover Maha Mantras by Sakshi Shree: ${SITE_URL}`;
+const WHATSAPP_SHARE_URL = `https://wa.me/?text=${encodeURIComponent(SHARE_MESSAGE)}`;
 
 // --- Components ---
 
@@ -135,6 +141,17 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 100]);
   const rotate = useTransform(scrollY, [0, 500], [0, 15]);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(SITE_URL);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setCopied(false);
+    }
+  };
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden sacred-grid bg-maroon-dark">
@@ -147,6 +164,15 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
           transition={{ duration: 1 }}
           className="text-left order-2 lg:order-1 flex flex-col items-start"
         >
+          <div className="mb-6 inline-flex items-center gap-4 rounded-full border border-gold/20 bg-black/20 px-5 py-3 backdrop-blur-md">
+            <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/25 flex items-center justify-center">
+              <DharmaChakra className="w-5 h-5 text-gold" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-parchment/50">Official Edition by</span>
+              <span className="text-sm md:text-base uppercase tracking-[0.35em] text-parchment">Sakshi Shree</span>
+            </div>
+          </div>
           <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Sacred Discipline</span>
           <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-tight md:leading-[0.9] text-parchment">
             Maha <span className="text-gold-gradient italic">Mantras</span>
@@ -169,6 +195,52 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
               Register for event
             </button>
           </div>
+
+          <div className="mt-10 w-full max-w-xl rounded-[1.75rem] border border-gold/15 bg-black/20 p-5 md:p-6 backdrop-blur-md">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+              <img
+                src={bookCover}
+                alt="Maha Mantras book cover"
+                className="w-full md:w-24 h-auto md:h-32 object-cover rounded-2xl shadow-2xl shadow-black/30 border border-white/10"
+              />
+              <div className="flex-1">
+                <span className="text-[10px] uppercase tracking-[0.35em] text-gold/70 block mb-2">Book Spotlight</span>
+                <h3 className="font-serif text-3xl md:text-4xl text-parchment mb-3">Maha Mantras</h3>
+                <p className="text-parchment/60 text-sm md:text-base leading-relaxed">
+                  Share the official page link on WhatsApp and show the book cover together with the title.
+                </p>
+                <div className="mt-4 flex flex-col gap-3">
+                  <div className="flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-3">
+                    <Share2 className="w-4 h-4 text-gold" />
+                    <a
+                      href={SITE_URL}
+                      className="text-xs md:text-sm text-parchment/80 break-all hover:text-gold transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {SITE_URL}
+                    </a>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <button
+                      onClick={handleCopyLink}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full border border-parchment/15 text-parchment text-xs uppercase tracking-[0.2em] font-bold hover:bg-white/5"
+                    >
+                      <Copy className="w-4 h-4" />
+                      {copied ? 'Copied' : 'Copy Link'}
+                    </button>
+                    <button
+                      onClick={() => window.open(WHATSAPP_SHARE_URL, '_blank')}
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#25D366] text-white text-xs uppercase tracking-[0.2em] font-bold hover:brightness-110"
+                    >
+                      <Share2 className="w-4 h-4" />
+                      Share on WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Right Content: Book & Mandala */}
@@ -185,19 +257,19 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
           </motion.div>
 
           {/* Book Mockup - Replaced with actual image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            className="relative w-64 h-auto md:w-96"
-          >
-            <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full" />
-            <img 
-              src={bookCover} 
-              alt="Maha Mantras Book Cover" 
-              className="relative w-full h-auto shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm"
-            />
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, y: 40 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 0.2 }}
+              className="relative w-64 h-auto md:w-96"
+            >
+              <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full" />
+              <img 
+                src={bookCover} 
+                alt="Maha Mantras Book Cover" 
+                className="relative w-full h-auto shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm"
+              />
+            </motion.div>
         </div>
       </div>
     </section>
