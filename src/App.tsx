@@ -144,17 +144,17 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="text-left order-2 lg:order-1 flex flex-col items-start"
+          className="text-center lg:text-left order-2 lg:order-1 flex flex-col items-center lg:items-start"
         >
           <span className="text-gold uppercase tracking-[0.5em] text-xs mb-6 block font-bold">The Sacred Discipline</span>
           <h1 className="text-5xl md:text-8xl lg:text-9xl font-serif mb-8 tracking-tight leading-tight md:leading-[0.9] text-parchment">
             Maha <span className="text-gold-gradient italic">Mantras</span>
           </h1>
-          <p className="text-xl md:text-2xl text-parchment/60 font-light tracking-wide mb-12 max-w-lg">
+          <p className="text-xl md:text-2xl text-parchment/60 font-light tracking-wide mb-12 max-w-lg mx-auto lg:mx-0">
             A structural blueprint for your consciousness. Discipline your mind. Awaken inner power.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-start gap-6">
+          <div className="w-full max-w-md sm:max-w-none flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-6">
             <button 
               onClick={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')}
               className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10 hover:scale-105 active:scale-95"
