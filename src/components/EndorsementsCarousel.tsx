@@ -256,7 +256,6 @@ export default function EndorsementsCarousel() {
                   alt={selectedEndorsement.name}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon-dark md:bg-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 md:hidden">
                   <h3 className="text-white font-serif text-3xl mb-1">{selectedEndorsement.name}</h3>
                   <p className="text-gold text-xs uppercase tracking-widest">{selectedEndorsement.title}</p>
