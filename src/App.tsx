@@ -191,11 +191,10 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
               transition={{ duration: 1.2, delay: 0.2 }}
               className="relative w-64 h-auto md:w-96"
             >
-              <div className="absolute inset-0 bg-gold/20 blur-3xl rounded-full" />
               <img 
                 src={bookCover} 
                 alt="Maha Mantras Book Cover" 
-                className="relative w-full h-auto shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-sm"
+                className="relative w-full h-auto rounded-sm"
               />
             </motion.div>
         </div>
