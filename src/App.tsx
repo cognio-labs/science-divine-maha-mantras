@@ -873,16 +873,18 @@ const PreOrderModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 // --- Main App ---
 
 export default function App() {
+  const preorderLink = 'https://amzn.in/d/0cR0rBnu';
+
   return (
     <div className="bg-maroon-dark text-parchment selection:bg-gold/30">
-      <Navbar onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
-      <Hero onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
+      <Navbar onOpenModal={() => window.open(preorderLink, '_blank')} />
+      <Hero onOpenModal={() => window.open(preorderLink, '_blank')} />
       <AuthorSection />
       <AuthoritySection />
       <ChaptersSection />
       <BenefitsSection />
       <EndorsementsCarousel />
-      <PreOrderSection onOpenModal={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')} />
+      <PreOrderSection onOpenModal={() => window.open(preorderLink, '_blank')} />
       <FinalImpact />
       <Footer />
     </div>
