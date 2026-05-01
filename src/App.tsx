@@ -76,7 +76,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
           <motion.button
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            onClick={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')}
+            onClick={onOpenModal}
             className="px-6 py-2 bg-gold text-maroon-dark text-xs uppercase font-bold tracking-widest rounded-full"
           >
             Pre-Order
@@ -117,7 +117,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
               <button 
                 onClick={() => {
                   setIsMobileMenuOpen(false);
-                  window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank');
+                  onOpenModal();
                 }}
                 className="mt-8 px-8 py-4 bg-gold text-maroon-dark text-lg uppercase font-bold tracking-widest rounded-full"
               >
@@ -157,7 +157,7 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
           
           <div className="w-full max-w-md sm:max-w-none flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-6">
             <button 
-              onClick={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')}
+              onClick={onOpenModal}
               className="w-full sm:w-auto px-10 py-5 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full shadow-xl shadow-gold/10 hover:scale-105 active:scale-95"
             >
               Pre-Order Now
@@ -690,7 +690,7 @@ const PreOrderSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
               <span className="text-parchment text-5xl font-serif">₹499</span>
             </div>
             <button 
-              onClick={() => window.open('https://www.penguin.co.in/book/life-changing-maha-mantras/', '_blank')}
+              onClick={onOpenModal}
               className="w-full md:w-auto px-16 py-6 bg-gold text-maroon-dark font-bold uppercase tracking-[0.2em] rounded-full shadow-2xl shadow-gold/20"
             >
               Reserve Your Copy Now
