@@ -163,8 +163,7 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
               Pre-Order Now
             </button>
             <button 
-              onClick={() => document.getElementById('chapters')?.scrollIntoView({ behavior: 'smooth' })}
-              className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full hover:bg-white/5 active:scale-95"
+              className="w-full sm:w-auto px-10 py-5 border border-parchment/20 text-parchment font-bold uppercase tracking-widest rounded-full hover:bg-white/5 active:scale-95 cursor-default"
             >
               Register for event
             </button>
