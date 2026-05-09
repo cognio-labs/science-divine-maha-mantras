@@ -206,8 +206,8 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
 const AuthorSection = () => {
   return (
     <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark text-parchment relative overflow-hidden border-t border-gold/5">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16 relative z-10">
-        <div className="w-full md:w-5/12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-16 relative z-10">
+        <div className="w-full md:w-5/12 pt-2">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
