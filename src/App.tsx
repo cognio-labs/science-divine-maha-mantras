@@ -137,7 +137,7 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
   const rotate = useTransform(scrollY, [0, 500], [0, 15]);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden sacred-grid bg-maroon-dark">
+    <section className="relative z-0 min-h-screen flex items-center pt-20 overflow-hidden sacred-grid bg-maroon-dark">
       <div className="max-w-7xl mx-auto px-4 md:px-6 w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10 py-16 md:py-20">
         
         {/* Left Content: Text */}
@@ -606,23 +606,19 @@ In an age of information overload, anxiety and identity confusion, this book is 
                 <X size={24} />
               </button>
 
-              <div className="w-full md:w-2/5 relative h-64 md:h-auto">
+              <div className="w-full md:w-2/5 relative h-56 md:h-auto bg-[#F5F2ED] flex items-center justify-center p-4 md:p-0">
                 <img 
                   src={selectedEndorsement.image} 
                   alt={selectedEndorsement.name} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain md:object-cover md:object-top"
                 />
-                <div className="absolute bottom-6 left-6 right-6 md:hidden">
-                  <h3 className="text-white font-serif text-3xl mb-1">{selectedEndorsement.name}</h3>
-                  <p className="text-gold text-xs uppercase tracking-widest">{selectedEndorsement.title}</p>
-                </div>
               </div>
 
-              <div className="flex-1 p-8 md:p-12 overflow-y-auto text-maroon-dark custom-scrollbar">
-                <div className="hidden md:block mb-8">
-                  <h3 className="text-4xl font-serif mb-2">{selectedEndorsement.name}</h3>
-                  <p className="text-gold-muted text-sm uppercase tracking-[0.2em] font-medium">{selectedEndorsement.title}</p>
-                  <div className="w-20 h-px bg-gold/30 mt-6" />
+              <div className="flex-1 p-6 md:p-12 overflow-y-auto text-maroon-dark custom-scrollbar">
+                <div className="mb-6 md:mb-8 text-center md:text-left">
+                  <h3 className="text-3xl md:text-4xl font-serif mb-2">{selectedEndorsement.name}</h3>
+                  <p className="text-gold-muted text-xs md:text-sm uppercase tracking-[0.2em] font-medium leading-relaxed">{selectedEndorsement.title}</p>
+                  <div className="w-16 md:w-20 h-px bg-gold/30 mt-4 md:mt-6 mx-auto md:mx-0" />
                 </div>
                 
                 <h4 className="text-2xl font-serif italic text-maroon mb-8 leading-tight">
