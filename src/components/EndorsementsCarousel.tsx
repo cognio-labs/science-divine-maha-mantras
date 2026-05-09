@@ -227,39 +227,35 @@ export default function EndorsementsCarousel() {
               initial={{ opacity: 0, scale: 0.9, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 40 }}
-              className="relative w-full max-w-4xl bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
+              className="relative w-full max-w-4xl bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[92vh] md:max-h-[90vh]"
             >
               <button
                 onClick={() => setSelectedEndorsement(null)}
-                className="absolute top-4 right-4 z-20 p-2 bg-maroon-dark/10 hover:bg-maroon-dark/20 rounded-full text-maroon-dark"
+                className="absolute top-4 right-4 z-20 p-2 bg-maroon-dark/10 hover:bg-maroon-dark/20 backdrop-blur-md rounded-full text-maroon-dark transition-colors"
               >
                 <X size={24} />
               </button>
 
-              <div className="w-full md:w-2/5 relative h-64 md:h-auto">
+              <div className="w-full md:w-2/5 relative h-52 sm:h-60 md:h-auto bg-gradient-to-b from-white to-gray-50 flex items-end justify-center pt-8 md:pt-0 shrink-0">
                 <img
                   src={selectedEndorsement.image}
                   alt={selectedEndorsement.name}
-                  className="w-full h-full object-cover"
+                  className="w-[82%] sm:w-[72%] md:w-full h-full object-contain object-bottom md:object-cover md:object-top drop-shadow-xl"
                 />
-                <div className="absolute bottom-6 left-6 right-6 md:hidden">
-                  <h3 className="text-white font-serif text-3xl mb-1">{selectedEndorsement.name}</h3>
-                  <p className="text-gold text-xs uppercase tracking-widest">{selectedEndorsement.title}</p>
-                </div>
               </div>
 
-              <div className="flex-1 p-8 md:p-12 overflow-y-auto text-maroon-dark custom-scrollbar">
-                <div className="hidden md:block mb-8">
-                  <h3 className="text-4xl font-serif mb-2">{selectedEndorsement.name}</h3>
-                  <p className="text-gold-muted text-sm uppercase tracking-[0.2em] font-medium">{selectedEndorsement.title}</p>
-                  <div className="w-20 h-px bg-gold/30 mt-6" />
+              <div className="flex-1 p-6 sm:p-8 md:p-12 overflow-y-auto text-maroon-dark custom-scrollbar bg-white">
+                <div className="mb-6 md:mb-8 text-center md:text-left">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-serif mb-1 md:mb-2 text-maroon-dark leading-tight">{selectedEndorsement.name}</h3>
+                  <p className="text-gold-muted text-[10px] sm:text-xs md:text-sm uppercase tracking-widest md:tracking-[0.2em] font-bold md:font-medium leading-relaxed max-w-[280px] sm:max-w-none mx-auto md:mx-0">{selectedEndorsement.title}</p>
+                  <div className="w-12 sm:w-16 md:w-20 h-px bg-gold/40 md:bg-gold/30 mt-5 md:mt-6 mx-auto md:mx-0" />
                 </div>
 
-                <h4 className="text-2xl font-serif italic text-maroon mb-8 leading-tight">
+                <h4 className="text-xl sm:text-2xl font-serif italic text-maroon mb-5 md:mb-8 leading-snug md:leading-tight text-center md:text-left">
                   "{selectedEndorsement.heading}"
                 </h4>
 
-                <div className="space-y-6 text-maroon-dark/80 text-lg leading-relaxed font-light">
+                <div className="space-y-4 md:space-y-6 text-maroon-dark/80 text-base md:text-lg leading-relaxed font-light text-justify md:text-left">
                   {selectedEndorsement.text.split('\n\n').map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
