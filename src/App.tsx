@@ -40,6 +40,15 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: 'Author', href: '#author' },
     { name: 'The Book', href: '#book' },
@@ -96,20 +105,21 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 bg-maroon-dark z-[60] flex flex-col p-8"
+            className="fixed top-0 left-0 w-full h-[100dvh] bg-[#4A0404] z-[9999] flex flex-col items-center justify-center p-8"
           >
-            <div className="flex justify-end mb-12">
-              <button onClick={() => setIsMobileMenuOpen(false)} className="text-parchment">
-                <X size={32} />
-              </button>
-            </div>
-            <div className="flex flex-col gap-8">
+            <button 
+              onClick={() => setIsMobileMenuOpen(false)} 
+              className="absolute top-6 right-6 p-2 text-parchment hover:text-gold transition-colors"
+            >
+              <X size={32} />
+            </button>
+            <div className="flex flex-col items-center gap-8 w-full max-w-sm">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="font-serif text-4xl text-parchment hover:text-gold transition-colors"
+                  className="font-serif text-4xl text-parchment hover:text-gold transition-colors text-center w-full"
                 >
                   {link.name}
                 </a>
@@ -119,7 +129,7 @@ const Navbar = ({ onOpenModal }: { onOpenModal: () => void }) => {
                   setIsMobileMenuOpen(false);
                   onOpenModal();
                 }}
-                className="mt-8 px-8 py-4 bg-gold text-maroon-dark text-lg uppercase font-bold tracking-widest rounded-full"
+                className="mt-4 px-10 py-5 bg-gold text-maroon-dark text-lg uppercase font-bold tracking-widest rounded-full w-full"
               >
                 Pre-Order Now
               </button>
