@@ -230,21 +230,21 @@ const AuthorSection = () => {
             viewport={{ once: true }}
           >
             <span className="text-gold uppercase tracking-[0.3em] text-xs mb-4 block font-bold">The Enlightened Master</span>
-            <div className="mb-6">
-              <p className="text-xl text-parchment/70 font-light">
+            <div className="space-y-4 mb-8">
+              <p className="text-xl text-parchment/70 font-light leading-relaxed">
                 Sakshi Shree is an enlightened spiritual master whose teachings unite ancient wisdom with practical living. Through meditation, self-awareness, and direct inner experience, he guides seekers toward peace, clarity, and self-realization.
               </p>
-              <p className="text-xl text-parchment/70 font-light">
+              <p className="text-xl text-parchment/70 font-light leading-relaxed">
                 Sadguru Sakshi Shree teaches that spirituality is not escape from life, but a way of living with awareness, balance, and joy. His message inspires people to discover inner freedom while fulfilling their responsibilities in the world.
               </p>
-              <p className="text-xl text-parchment/70 font-light">
+              <p className="text-xl text-parchment/70 font-light leading-relaxed">
                 Through his spiritual guidance, countless seekers have experienced deeper understanding, inner transformation, and a closer connection with the eternal wisdom of the Bhagavad Gita.
               </p>
-              <p className="text-xl text-parchment/70 font-light">
+              <p className="text-xl text-parchment/70 font-light leading-relaxed">
                 For the Gita Mahamantras platform, the vision is to make the sacred mantras of the Gita a living force—bringing peace to the mind, purity to the heart, and awakening to the soul.
               </p>
             </div>
-            <p className="text-lg text-parchment/60 font-light mb-10 italic border-l-4 border-gold/30 pl-8">
+            <p className="text-lg text-parchment/60 font-light leading-relaxed mb-12 italic border-l-4 border-gold/30 pl-8">
               "I do not teach any religion; I bring out the best of philosophies to enhance the lives of those I touch. 
               The battlefield of Kurukshetra has not disappeared it has only multiplied. It now exists within every individual navigating ambition and conscience."
             </p>
