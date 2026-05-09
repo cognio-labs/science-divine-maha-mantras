@@ -203,7 +203,7 @@ const Hero = ({ onOpenModal }: { onOpenModal: () => void }) => {
   );
 };
 
-const AuthorSection = () => {
+const AuthorSection = ({ onOpenModal }: { onOpenModal: () => void }) => {
   return (
     <section id="author" className="py-20 md:py-24 px-4 md:px-6 bg-maroon-dark text-parchment relative overflow-hidden border-t border-gold/5">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-16 relative z-10">
@@ -249,7 +249,7 @@ const AuthorSection = () => {
               The battlefield of Kurukshetra has not disappeared it has only multiplied. It now exists within every individual navigating ambition and conscience."
             </p>
             <button 
-              onClick={() => document.getElementById('preorder')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={onOpenModal}
               className="mb-10 px-10 py-4 bg-gold text-maroon-dark font-bold uppercase tracking-widest rounded-full hover:scale-105 transition-transform"
             >
               Reserve Your Copy
@@ -888,7 +888,7 @@ export default function App() {
     <div className="bg-maroon-dark text-parchment selection:bg-gold/30">
       <Navbar onOpenModal={() => window.open(preorderLink, '_blank')} />
       <Hero onOpenModal={() => window.open(preorderLink, '_blank')} />
-      <AuthorSection />
+      <AuthorSection onOpenModal={() => window.open(preorderLink, '_blank')} />
       <AuthoritySection />
       <ChaptersSection />
       <BenefitsSection />
